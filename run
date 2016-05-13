@@ -1,0 +1,9 @@
+bower -a update abl-sdk
+killall -9 grunt
+killall -9 node
+killall -9 npm
+lsc -c gruntfile
+rm -rf .compiled
+mkdir .compiled
+grunt $1
+rm gruntfile.js
