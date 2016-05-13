@@ -1,1 +1,61 @@
+@keyframes fadeInUp
+  from
+    opacity: 0
+  to
+    opacity: 1
 .app
+  height: 100vh
+  >section>md-content 
+    background-color: #F7F4F4
+    padding: 0
+    >*
+      animation-name: fadeInUp
+      animation-duration: .5s
+  md-sidenav
+    background-color: white
+    $sidenav-width: 100px
+    max-width: $sidenav-width
+    min-width: $sidenav-width
+    .md-subheader-inner
+      text-align: center
+    md-content, .md-subheader, md-icon
+      background-color: transparent
+      color: #969191
+      margin: 0px
+    >md-content
+      padding: 0px
+      >md-list 
+        >md-list-item
+          .md-list-item-text
+            padding: 0
+          cursor: pointer
+          .md-button
+            width: 100%
+            text-align: center
+            &:hover 
+              background: rgba(black, 0.1)
+              transition: background .3s
+            md-icon
+              padding-top: 13px
+              box-sizing: border-box
+            &.active
+              md-icon, .md-list-item-text
+                color: black
+                transition: color .5s
+                
+            
+    .md-toolbar-tools
+      $height: 80px
+      max-height: $height
+      min-height: $height
+      height: $height
+      background-color: #989393
+      >.text
+        display: block
+        text-align: center
+        width: 100%
+
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar
+  background-color: #5D9BFB
+md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon
+  color: #5D9BFB

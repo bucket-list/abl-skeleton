@@ -14200,6 +14200,63 @@ md-tooltip {
   md-whiteframe {
     border: 1px solid #fff; } }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.app {
+  height: 100vh; }
+  .app > section > md-content {
+    background-color: #F7F4F4;
+    padding: 0; }
+    .app > section > md-content > * {
+      animation-name: fadeInUp;
+      animation-duration: .5s; }
+  .app md-sidenav {
+    background-color: white;
+    max-width: 100px;
+    min-width: 100px; }
+    .app md-sidenav .md-subheader-inner {
+      text-align: center; }
+    .app md-sidenav md-content, .app md-sidenav .md-subheader, .app md-sidenav md-icon {
+      background-color: transparent;
+      color: #969191;
+      margin: 0px; }
+    .app md-sidenav > md-content {
+      padding: 0px; }
+      .app md-sidenav > md-content > md-list > md-list-item {
+        cursor: pointer; }
+        .app md-sidenav > md-content > md-list > md-list-item .md-list-item-text {
+          padding: 0; }
+        .app md-sidenav > md-content > md-list > md-list-item .md-button {
+          width: 100%;
+          text-align: center; }
+          .app md-sidenav > md-content > md-list > md-list-item .md-button:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transition: background .3s; }
+          .app md-sidenav > md-content > md-list > md-list-item .md-button md-icon {
+            padding-top: 13px;
+            box-sizing: border-box; }
+          .app md-sidenav > md-content > md-list > md-list-item .md-button.active md-icon, .app md-sidenav > md-content > md-list > md-list-item .md-button.active .md-list-item-text {
+            color: black;
+            transition: color .5s; }
+    .app md-sidenav .md-toolbar-tools {
+      max-height: 80px;
+      min-height: 80px;
+      height: 80px;
+      background-color: #989393; }
+      .app md-sidenav .md-toolbar-tools > .text {
+        display: block;
+        text-align: center;
+        width: 100%; }
+
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+  background-color: #5D9BFB; }
+
+md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+  color: #5D9BFB; }
 
 
 
