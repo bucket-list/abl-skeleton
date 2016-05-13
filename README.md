@@ -5,7 +5,9 @@ Application skeleton. Included:
 * angularjs
 * expressjs
 * angular.material
+* angular.material icons
 * grunt 
+* faker
 
 
 Video tutorial: [Russian](https://www.youtube.com/watch?v=wjoalo8WgJk), [English](https://youtu.be/tzdS_ECiwqA)

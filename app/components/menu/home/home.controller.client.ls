@@ -1,3 +1,5 @@
-app.controller do 
-  * \home
-  * ($scope)->
+angular
+  .module(\app)
+  .controller do 
+      * \home
+      * ($scope)->

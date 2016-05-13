@@ -1,3 +1,5 @@
-app.controller do 
-  * \users
-  * ($scope)->
+angular
+  .module(\app)
+  .controller do 
+      * \users
+      * ($scope)->

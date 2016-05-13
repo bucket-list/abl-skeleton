@@ -1,6 +1,6 @@
 angular
   .module(\app)
-  .controller \app, ($scope)->
+  .controller \app, ($scope, $state)->
        $scope.open = (item)->
            $state.go item.href
        $scope.opened = (item)->

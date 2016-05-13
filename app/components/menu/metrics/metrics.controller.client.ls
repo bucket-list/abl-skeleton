@@ -1,3 +1,5 @@
-app.controller do 
-  * \metrics
-  * ($scope)->
+angular
+  .module(\app)
+  .controller do 
+      * \metrics
+      * ($scope)->

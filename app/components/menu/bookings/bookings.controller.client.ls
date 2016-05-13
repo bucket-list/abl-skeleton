@@ -1,3 +1,5 @@
-app.controller do 
-  * \bookings
-  * ($scope)->
+angular
+  .module(\app)
+  .controller do 
+      * \bookings
+      * ($scope)->

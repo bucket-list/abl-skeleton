@@ -1,7 +1,7 @@
 angular
   .module \app
   .config ($state-provider, $url-router-provider) ->
-       name = \home
+       name = \metrics
        $state-provider.state do
           * name
           * url: "/#name"
@@ -9,4 +9,4 @@ angular
             views:
                'content':
                   template-url: name
-                  controller: namemodule.exports = (app)->
+                  controller: name

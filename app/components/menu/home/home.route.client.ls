@@ -9,4 +9,4 @@ angular
             views:
                'content':
                   template-url: name
-                  controller: namemodule.exports = (app)->
+                  controller: name

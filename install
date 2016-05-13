@@ -4,6 +4,7 @@ sudo npm i -g livescript
 sudo npm i -g xm 
 sudo npm i -g forever 
 sudo npm i -g grunt-cli
+sudo npm i -g bower
 npm i --save body-parser
 npm i --save express
 npm i --save xonom
