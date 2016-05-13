@@ -1,4 +1,4 @@
-# Xonom Skeleton for SAAS
+# ABL Skeleton for internal/external apps
 
 Application skeleton. Included: 
 
@@ -6,8 +6,6 @@ Application skeleton. Included:
 * expressjs
 * angular.material
 * grunt 
-* xonom
-* grunt-xonom
 
 
 Video tutorial: [Russian](https://www.youtube.com/watch?v=wjoalo8WgJk), [English](https://youtu.be/tzdS_ECiwqA)
@@ -17,14 +15,13 @@ sh install
 sh run
 #Start develop your web application
 ```
-![Xonom](http://www.netsolutionsindia.com/img/saas-graphic.jpg)
 
 ## Installation of environment
 
 ```sh
 sudo apt-get install nodejs git
-git clone git@github.com/askucher/xonom-skeleton
-cd xonom-skeleton
+git clone git@github.com/bucket-list/abl-skeleton
+cd abl-skeleton
 sh install
 sh run
 #sh run debug
@@ -187,7 +184,6 @@ app.controller("user", function($scope, $xonom) {
 ```
 
 Then grunt should reload everything automatically
-
 
 All your files will be concatenated into one js and css file and ready for usage.
 
