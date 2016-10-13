@@ -1,5 +1,0 @@
-.notifications(ng:style="notificationsStyle()")
-  .notification(ng:repeat='notification in notifications' ng:class="notification.type")
-    .close(ng:click="close(notification, $event)") ×
-    img(ng:src="images/{{notification.type}}.png")
-    .text {{notification.data}}
