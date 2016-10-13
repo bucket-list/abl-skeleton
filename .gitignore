@@ -1,4 +1,9 @@
-node_modules/
-bower_components/
-lib/
-.*/
+# node
+node_modules
+npm-debug.log
+
+#.env
+
+# builds
+target
+.tmp
