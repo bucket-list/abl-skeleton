@@ -1,4 +1,20 @@
 # ABLskeleton
+This is the ABL core application skeleton/scaffold for developing client side Angular.js web applications.
+
+# Libraries
+angular:            1.5.8
+angular-animate:    1.5.8
+angular-aria:       1.5.8
+angular-material:   1.1.1
+angular-messages:   1.5.8
+angular-socket-io:  0.7.0
+angular-ui-router:  0.3.1
+feathers-client:    1.6.1
+include-media:      1.4.1
+jquery:             3.1.1
+ng-feathers:        1.6.1
+socket.io:          1.5.0
+
 
 # .env file
 The content of this file can be accessed in HTML / Javascript. For example:
@@ -19,7 +35,7 @@ var moduleName = '/* @echo MODULE_NAME */';
 # Development
 
 ```
-npm run dev
+npm install && npm run dev
 ```
 
 # Distribution
@@ -45,13 +61,13 @@ Build Angular.js apps in a structured (component-based) way.
 - SCSS (node-sass)
 - ESLint (recommended settings)
 - Preprocessing HTML and Javascript (by using ```.env``` file)
-- Iconfont pipeline (just put .svg's in ```icons``` directory, automatically creates iconfont)
-- Use node_modules for frontend dependency management
+- Iconfont pipeline (put .svg's in ```icons``` directory, automatically creates iconfont)
+- Use node_modules & npm for frontend dependency management
 
 # Components?
 Components are small, reusable parts of the application.
 
-## Development components
+### Developing
 All component files *DO NOT* need angular module definitions, it happens for you.
 
 So you don't ever have to write this:
