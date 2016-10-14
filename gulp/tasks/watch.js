@@ -15,6 +15,7 @@ gulp.task('watch', ['load-env'], function () {
     'src/components/**/*.html'
   ], function () {
     gulp.start('templates');
+    browserSync.reload();
   });
 
   watch([
