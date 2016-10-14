@@ -15,7 +15,7 @@
     "comma-dangle": [2, "never"],
     "no-cond-assign": [2, "always"],
     "no-debugger": 1,
-    "no-console": 1,
+    "no-console": 0,
     "no-constant-condition": 2,
     "no-control-regex": 2,
     "no-dupe-args": 2,
@@ -39,7 +39,6 @@
     "no-caller": 2,
     "no-case-declarations": 2,
     "no-else-return": 2,
-    "no-eq-null": 2,
-    "indent": [2, 2]
+    "no-eq-null": 2
   }
 }
