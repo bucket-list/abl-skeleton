@@ -15,6 +15,20 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/socket.io-client/socket.io.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/angular-messages/angular-messages.min.js',
+      'node_modules/angular-ui-router/release/angular-ui-router.js',
+      'node_modules/angular-animate/angular-animate.js',
+      'node_modules/angular-aria/angular-aria.min.js',
+      'node_modules/angular-material/angular-material.min.js',
+      'node_modules/angular-socket-io/socket.min.js',
+      'node_modules/feathers-client/dist/feathers.js',
+      'node_modules/ng-feathers/dist/ng-feathers.min.js',
+      'src/**/*.js',
+      'src/**/*.html'
     ],
 
 

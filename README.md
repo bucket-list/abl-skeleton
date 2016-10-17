@@ -32,10 +32,17 @@ var moduleName = '/* @echo MODULE_NAME */';
 <html ng-app="<!-- @echo MODULE_NAME -->">
 ```
 
+#Install
+
+```
+npm install -g gulp karma jasmine-core karma-chrome-launcher requirejs
+npm install
+```
+
 # Development
 
 ```
-npm install && npm run dev
+npm run dev
 ```
 
 # Distribution
