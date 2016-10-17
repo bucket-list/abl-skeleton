@@ -2,21 +2,18 @@
 This is the ABL core application skeleton/scaffold for developing client side Angular.js web applications.
 
 # Libraries
+- jquery              3.1.1
+- socket.io           1.5.0
+- feathers-client     1.6.1
 - angular             1.5.8
 - angular-animate     1.5.8
 - angular-aria        1.5.8
 - angular-messages    1.5.8
 - angular-material    1.1.1
 - angular-ui-router   0.3.1
-- angular-mocks       1.5.8
-
-- jquery              3.1.1
-- socket.io           1.5.0
 - angular-socket-io   0.7.0
-- feathers-client     1.6.1
+- angular-mocks       1.5.8
 - ng-feathers         1.6.1
-
-
 
 # .env file
 The content of this file can be accessed in HTML / Javascript. For example:
