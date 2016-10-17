@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "gulp dev",
-    "dist": "gulp dist"
+    "dist": "gulp dist",
+    "test": "karma start"
   },
   "eslintConfig": {
     "root": true
@@ -52,17 +53,23 @@
     "stream-combiner2": "^1.1.1"
   },
   "devDependencies": {
+    "jquery": "^3.1.1",
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
     "angular-aria": "^1.5.8",
     "angular-material": "^1.1.1",
     "angular-messages": "^1.5.8",
+    "angular-mocks": "^1.5.8",
     "angular-socket-io": "^0.7.0",
     "angular-ui-router": "^0.3.1",
     "feathers-client": "^1.6.1",
-    "jquery": "^3.1.1",
     "ng-feathers": "^1.6.1",
-    "ng-mock": "^0.10.10",
-    "socket.io": "^1.5.0"
+    "socket.io": "^1.5.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-ng-html2js-preprocessor": "^1.0.0"
   }
 }
