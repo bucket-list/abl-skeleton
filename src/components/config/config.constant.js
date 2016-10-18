@@ -7,6 +7,5 @@
 
 var config = {
   MODULE_NAME: '/* @echo MODULE_NAME */',
-  FEATHERS: 'https://nj.ralko.com'
+  FEATHERS: '/* @echo FEATHERS_URL */'
 };
-

@@ -1,64 +1,64 @@
-# ABLskeleton
+# ABL-skeleton
 This is the ABL core application skeleton/scaffold for developing client side Angular.js web applications.
 
-# Libraries
-- jquery              3.1.1
-- socket.io           1.5.0
-- feathers-client     1.6.1
-- angular             1.5.8
-- angular-animate     1.5.8
-- angular-aria        1.5.8
-- angular-messages    1.5.8
-- angular-material    1.1.1
-- angular-ui-router   0.3.1
-- angular-socket-io   0.7.0
-- angular-mocks       1.5.8
-- ng-feathers         1.6.1
+## Libraries
+- [jquery 3.1.1]
+- [socket.io 1.5.0]
+- [feathers-client 1.6.1]
+- [angular 1.5.8]
+- [angular-animate 1.5.8]
+- [angular-aria 1.5.8]
+- [angular-messages 1.5.8]
+- [angular-material 1.1.1]
+- [angular-ui-router 0.3.1]
+- [angular-socket-io 0.7.0]
+- [angular-mocks 1.5.8]
+- [ng-feathers 1.6.1]
 
-# .env file
-The content of this file can be accessed in HTML / Javascript. For example:
+## .env file
+The contents of this file can be accessed in HTML / Javascript. For example:
 
 .env
 ```
-MODULE_NAME=myApp
+MODULE_NAME=abl
 ```
 
+.js
 ```javascript
 var moduleName = '/* @echo MODULE_NAME */';
 ```
 
+.html
 ```html
 <html ng-app="<!-- @echo MODULE_NAME -->">
 ```
 
-#Install
-
+## Install
+```
+npm install -g gulp requirejs karma karma-chrome-launcher jasmine-core
+```
 ```
 npm install
 ```
 
-# Development
-
+## Development
 ```
 npm run dev
 ```
 
-# Distribution
-
+## Distribution
 ```
 npm run dist
 ```
 
-# Testing
-
+## Testing
 ```
 npm run test
 ```
 
 Unit testing with [Karma](http://karma-runner.github.io/1.0/index.html), [Jasmine](http://jasmine.github.io/), and generated code coverage reports with [Istanbul](https://github.com/gotwarlost/istanbul).
 
-[Guide](https://www.airpair.com/angularjs/posts/unit-testing-angularjs-applications)
-
+[Testing reference guide](https://www.airpair.com/angularjs/posts/unit-testing-angularjs-applications)
 
 # Benefits
 - Build Angular.js apps in a structured (component-based) way
@@ -68,12 +68,11 @@ Unit testing with [Karma](http://karma-runner.github.io/1.0/index.html), [Jasmin
 - Component based structure
 - Uses [John Papa](https://github.com/johnpapa/angular-styleguide) conventions
 
-# Features
-
+## Features
 - Live reload development web server (browserSync)
 - Babel (es2015) javascript compilation
 - SCSS (node-sass)
-- ESLint (recommended settings)
+- ESLint
 - Preprocessing HTML and Javascript (by using ```.env``` file)
 - Iconfont pipeline (put .svg's in ```icons``` directory, automatically creates iconfont)
 - Use node_modules & npm for frontend dependency management
@@ -81,7 +80,6 @@ Unit testing with [Karma](http://karma-runner.github.io/1.0/index.html), [Jasmin
 # Components?
 Components are small, reusable parts of the application.
 
-### Developing
 All component files *DO NOT* need angular module definitions, it happens for you.
 
 So you don't ever have to write this:
@@ -93,9 +91,9 @@ angular.module('myApp').controller('MyAwesomeController', MyAwesomeController);
 Instead, the type is defined in the filename i.e. `dashboard.directive.js`, `dashboard.controller.js`
 
 ### Why?
-Too much wasted time creating files alone, and always the same code repeating -- NO!
+Too much wasted time creating files alone, and always the same code repeating -- NO.
 
-We'll declare the type in the filename instead.
+We declare the type in the filename instead.
 
 ### Directives
 file name: `dashboard.directive.js`
@@ -136,5 +134,11 @@ function users ($q, $http) {
   }
 }
 ```
-
 ### More (filters, config, run, constant)
+
+## TODO: AppShell architecture
+Moving towards an offline-available, cached version of the application for improved customer experience and load times.
+
+### Inspiration
+[App shell architecture -- Google's engineering blog post](https://developers.google.com/web/updates/2015/11/app-shell)
+[Slack's incremental boot architecture blog post](https://slack.engineering/getting-to-slack-faster-with-incremental-boot-ff063c9222e4#.vsq8c6hh5)
