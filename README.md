@@ -55,10 +55,13 @@ npm run dist
 npm run test
 ```
 
-Build Angular.js apps in a structured (component-based) way.
+Unit testing with [Karma](http://karma-runner.github.io/1.0/index.html), [Jasmine](http://jasmine.github.io/), and generated code coverage reports with [Istanbul](https://github.com/gotwarlost/istanbul).
+
+[Guide](https://www.airpair.com/angularjs/posts/unit-testing-angularjs-applications)
+
 
 # Benefits
-
+- Build Angular.js apps in a structured (component-based) way
 - Simple, high performance
 - Production ready (this structure is used in production by a few large organizations)
 - Fast development
