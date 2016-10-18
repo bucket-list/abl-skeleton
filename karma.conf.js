@@ -1,5 +1,7 @@
 // Karma configuration
 // Generated on Mon Oct 17 2016 15:44:04 GMT-0700 (PDT)
+var path = require('path'),
+webpack = require('webpack');
 
 module.exports = function(config) {
   config.set({
@@ -33,21 +35,33 @@ module.exports = function(config) {
 
 
     // list of files to exclude
+
     exclude: [
     ],
 
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'src/**/*.html': ['ng-html2js'],
+      'src/**/!(*.mock|*.spec).js': ['coverage']
     },
 
+    ngHtml2JsPreprocessor: {
+      // strip this from the file path
+      stripPrefix: 'src/',
+      // create a single module that contains templates from all the files
+      moduleName: 'templates'
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress','coverage'],
 
+
+    coverageReporter: {
+      type : 'html',
+      // output coverage reports
+      dir : 'coverage/'
+    },
 
     // web server port
     port: 9876,
