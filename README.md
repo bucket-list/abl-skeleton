@@ -53,6 +53,12 @@ npm run dev
 npm run dist
 ```
 
+# Testing
+
+```
+npm run test
+```
+
 Build Angular.js apps in a structured (component-based) way.
 
 # Benefits
