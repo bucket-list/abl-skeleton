@@ -18,32 +18,6 @@ var app = feathers()
   .use(bodyParser.urlencoded({extended: true}));
 
 
-const genUnit =
-{
-   strings: {
-   en: {
-         title: "Deluxe Ocean View",
-         description: "This unit can see the ocean and has a beautiful decor."
-     } // other languages like french, spanish, etc
-   },
-   size: { amount: 450, unit: "sq ft" },
-   guests: 4, // suitable number of guests
-   amenities: [
-     { _id: "AMEN_ID1", name: "satellite tv" },
-     { _id: "AMEN_ID2", name: "broadband internet" },
-     { _id: "AMEN_ID3", name: "parking" }
-   ],
-   images: [ "unit-image-url-1.jpg", "unit-image-url-2.jpg" ], // all unit images
-   rooms: { bedroom: 2, bathroom: 2, kitchen: 1, laundry: 1, parking: 1 },
-   beds: { king: 1, queen: 1, double: 1, sofa: 1 },
-   units: [
-     { _id: "UNIT_ID_1", name: "1" },
-     { _id: "UNIT_ID_2", name: "2" },
-     { _id: "UNIT_ID_3", name: "3" }
-   ],
-   property: "PROPERTY_ID"
- };
-
 // Logging db
 const logDb = new NeDB({
   filename: './test/api/log',
@@ -73,7 +47,7 @@ app.use('/units', service({
   }
 }));
 
-// Generate local db from mock .js data
+// Generate local db from sample .js data
 // var units = require('./api/unit.samples.js');
 // units.forEach(function(unit) {
 //   app.service('units').create(unit);
@@ -85,13 +59,12 @@ app.listen(port, function() {
   console.log(`API listening localhost:${port}`);
 });
 
+// Log API server start
 app.service('log').create({
   text: "START",
   createdAt: Date.now()
 }).then(function(log) {
   console.log('log:', JSON.stringify(log));
 });
-
-
 
 module.exports = app;
