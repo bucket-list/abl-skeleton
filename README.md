@@ -45,6 +45,9 @@ npm install
 ```
 npm run dev
 ```
+- Starts browserSync on port 3000
+- Starts Express/Feathers.js API server on port 3030
+- Watches file changes and reloads browserSync and test/server.js (API server)
 
 ## Distribution
 ```
