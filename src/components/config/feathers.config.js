@@ -3,4 +3,4 @@ function feathers ($feathersProvider, config) {
 
     // You can optionally provide additional opts for socket.io-client
     $feathersProvider.useSocket(true);
-  };
+}

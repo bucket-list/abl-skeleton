@@ -1,5 +1,5 @@
 var combiner = require('stream-combiner2');
-var browserSync = require('./tasks/browser-sync');
+var browserSync = require('./tasks/dev');
 var gutil = require('gulp-util');
 var preprocess = require('gulp-preprocess');
 

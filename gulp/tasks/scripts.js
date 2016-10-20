@@ -15,6 +15,7 @@ var babel = require('gulp-babel');
 
 var common = require('../common');
 
+// Get and concat node_modules .js
 gulp.task('scripts:node_modules', ['load-env'], function () {
   return gulp
     .src('src/index.html')

@@ -1,3 +1,4 @@
+// Create Angular templateCache from .html template files
 var gulp = require('gulp');
 var templateCache = require('gulp-angular-templatecache');
 var concat = require('gulp-concat');

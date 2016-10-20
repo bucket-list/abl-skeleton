@@ -4,23 +4,34 @@
     <base href="/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>myApp</title>
+    <title>ABL</title>
 
     <!-- build:css -->
     <link rel="stylesheet" href="generated-styles/main.css" />
     <!-- endbuild -->
 
   </head>
-  <body>
+  <body layout="column" layout-fill ng-controller="NavController">
 
-    <div id="view-container" ui-view></div>
+    <!-- Top navigation bar -->
+    <div ng-include="'nav/topNav.html'"></div>
+
+    <!-- Main content -->
+    <section layout="row" flex>
+      <!--  Left side navigation-->
+      <div ng-include="'nav/leftNav.html'"></div>
+      <!-- Application content -->
+      <md-content layout="column" flex>
+        <div id="view-container" ui-view></div>
+      </md-content>
+    </section>
 
     <!-- build:js -->
       <!-- build:node_modules -->
       <script src="node_modules/jquery/dist/jquery.js"></script>
       <script src="node_modules/socket.io-client/socket.io.js"></script>
       <script src="node_modules/angular/angular.js"></script>
-      
+
       <script src="node_modules/angular-messages/angular-messages.min.js"></script>
       <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="node_modules/angular-animate/angular-animate.js"></script>

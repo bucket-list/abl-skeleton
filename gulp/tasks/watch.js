@@ -1,11 +1,16 @@
+// Watch client side application resources and rebuild/reload browserSync on     // file changes.
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var runSequence = require('run-sequence');
 
-var browserSync = require('./browser-sync');
+var browserSync = require('./dev');
 
 gulp.task('watch-recompile', function (callback) {
-  runSequence(['styles', 'scripts:module', 'scripts:components', 'html'], callback);
+  runSequence(['styles', 'scripts:module', 'scripts:components', 'html', 'reload'], callback);
+});
+
+gulp.task('reload', ['load-env'], function () {
+  browserSync.reload();
 });
 
 gulp.task('watch', ['load-env'], function () {
@@ -39,6 +44,7 @@ gulp.task('watch', ['load-env'], function () {
     'src/views/**/*.js'
   ], function () {
     gulp.start('scripts:components');
+    browserSync.reload();
   });
 
   watch([

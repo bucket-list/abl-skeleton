@@ -1,3 +1,4 @@
+// Build and output minified client application resources to target/dist folder
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var gutil = require('gulp-util');

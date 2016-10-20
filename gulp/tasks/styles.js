@@ -1,3 +1,4 @@
+// Create inline .css file from .scss style resources
 var gulp = require('gulp');
 var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
@@ -8,7 +9,7 @@ var minifyCss = require('gulp-clean-css');
 var size = require('gulp-size');
 var autoprefixer = require('gulp-autoprefixer');
 
-var browserSync = require('./browser-sync');
+var browserSync = require('./dev');
 
 var common = require('../common');
 

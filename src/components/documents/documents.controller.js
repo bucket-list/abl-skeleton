@@ -2,8 +2,8 @@ function DocumentsController () {
   var vm = this;
 
   this.documents = [{
-    name: 'My first document'
+    name: ''
   }, {
-    name: 'My second document'
+    name: ''
   }];
 }

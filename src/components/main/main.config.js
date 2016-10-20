@@ -12,4 +12,3 @@ function main ($locationProvider, $compileProvider) {
     .html5Mode(true)
     .hashPrefix('!');
 }
-

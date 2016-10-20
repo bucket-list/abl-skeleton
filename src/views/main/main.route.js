@@ -8,4 +8,5 @@ function main ($stateProvider) {
     templateUrl: 'main/main.html',
     controller: 'MainController'
   });
+
 }

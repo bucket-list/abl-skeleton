@@ -1,10 +1,10 @@
+// Load .env file
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 
 gulp.task('load-env', function (callback) {
 
-  // load .env file
   var dotEnvFile = require('dotenv').load();
 
   if (!dotEnvFile) {

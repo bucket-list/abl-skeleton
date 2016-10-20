@@ -10,3 +10,6 @@ target
 
 #test
 coverage
+
+#test API logs
+test/api/log
