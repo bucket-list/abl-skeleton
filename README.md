@@ -96,7 +96,6 @@ function MainController ($scope, $log, config) {
   $scope.moduleName = config.MODULE_NAME;
 
   $log.debug('Debug mode enabled.');
-
 }
 ```
 
