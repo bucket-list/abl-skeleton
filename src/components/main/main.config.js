@@ -6,9 +6,10 @@ function main ($locationProvider, $compileProvider, $logProvider, $mdInkRipplePr
   $compileProvider.debugInfoEnabled(config.DEBUG);
   $logProvider.debugEnabled(config.DEBUG);
 
-  if(config.MD_INK === 'false')
+  if(config.MD_INK === 'false') {
     $mdInkRippleProvider.disableInkRipple();
-
+  }
+  
   $locationProvider
     .html5Mode(true)
     .hashPrefix('!');

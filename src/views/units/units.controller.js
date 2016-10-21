@@ -11,7 +11,7 @@ function UnitsController ($scope, users, config, $feathers, $log) {
   // Get units
   $scope.unitService.find({}).then(function(units) {
     vm.units = units.data;
-    $log.debug('Units', units);
+    $log.debug('Feathers units: ', units);
     $scope.safeApply();
   });
 

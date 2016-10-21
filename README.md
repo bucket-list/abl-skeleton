@@ -36,12 +36,12 @@ MD_INK=false
 
 The contents of this file can be accessed in HTML / Javascript. For example:
 
-*src/views/index.html*
+*_src/views/index.html_*
 ```html
 <html ng-app="<!-- @echo MODULE_NAME -->">
 ```
 
-*src/components/config/config.constant.js*
+*_src/components/config/config.constant.js_*
 ```javascript
 var config = {
   MODULE_NAME: '/* @echo MODULE_NAME */',
@@ -51,14 +51,15 @@ var config = {
 };
 ```
 
-*src/components/main/main.config.js*
+*_src/components/main/main.config.js_*
 ```javascript
 function main ($locationProvider, $compileProvider, $logProvider, $mdInkRippleProvider, config) {
   $compileProvider.debugInfoEnabled(config.DEBUG);
   $logProvider.debugEnabled(config.DEBUG);
 
-  if(config.MD_INK === 'false')
+  if(config.MD_INK === 'false') {
     $mdInkRippleProvider.disableInkRipple();
+  }
 
   $locationProvider
     .html5Mode(true)
@@ -66,7 +67,7 @@ function main ($locationProvider, $compileProvider, $logProvider, $mdInkRipplePr
 }
 ```
 
-*src/components/main/feathers.config.js*
+*_src/components/main/feathers.config.js_*
 ```javascript
 function feathers ($feathersProvider, config) {
     $feathersProvider.setEndpoint(config.FEATHERS);
