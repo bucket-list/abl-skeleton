@@ -1,8 +1,9 @@
 # ABL-skeleton
 This is the ABL core application skeleton/scaffold for developing client side Angular.js web applications.
 
-## Libraries
-| ----------------- | ----- |
+## Dependencies
+| Library           |       |
+| :---------------- | ----: |
 | angular           | 1.5.8 |
 | angular-animate   | 1.5.8 |
 | angular-aria      | 1.5.8 |
