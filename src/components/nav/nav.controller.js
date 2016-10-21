@@ -2,12 +2,10 @@ function NavController ($scope, $state, $feathers, $log, deviceDetector, config)
   var vm = this;
 
   $scope.moduleName = config.MODULE_NAME;
+  $scope.navOpen = true;
   vm.device = deviceDetector;
 
-  $scope.navOpen = true;
-
   $log.debug('Debugging enabled.');
-  $log.debug('Device ', vm.device);
 
   // Application-wide safeApply function for usage in child controllers as
   // better alternative to $apply();
