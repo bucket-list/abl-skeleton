@@ -49,6 +49,11 @@ npm run dev
 - Starts Express/Feathers.js API server on port 3030
 - Watches file changes and reloads browserSync and test/server.js (API server)
 
+### Local Development API Server
+- test/server.js is a local instance of the same Express/Feather.js server platform hosted on the backend in production.
+- Sample data is persisted using NeDB flat-file databases so no need to configure MongoDB locally on your dev system.
+- API end-points remain unchanged from dev to production, so all we need to change is the FEATHERS_URL in the .env file to direct the client application to use the production API server (e.g. https://api.adventurebucketlist.com vs. http://localhost:3030).
+
 ## Distribution
 ```
 npm run dist
