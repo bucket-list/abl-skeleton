@@ -17,7 +17,7 @@ This is the ABL core application skeleton/scaffold for developing client side An
 | feathers-client   | 1.6.1 |
 | ng-feathers       | 1.6.1 |
 
-## .env file
+## Configuration with .env file
 Define environment variables used to configure the build of the client-side Angular application.
 
 ```
@@ -44,6 +44,31 @@ var moduleName = '/* @echo MODULE_NAME */';
 .html
 ```html
 <html ng-app="<!-- @echo MODULE_NAME -->">
+```
+*src/components/config/config.constant.js*
+```javascript
+var config = {
+  MODULE_NAME: '/* @echo MODULE_NAME */',
+  FEATHERS:    '/* @echo FEATHERS_URL */',
+  DEBUG:       '/* @echo DEBUG */',
+  MD_INK:      '/* @echo MD_INK */'
+};
+```
+
+*src/components/main/main.config.js*
+```javascript
+function main ($locationProvider, $compileProvider, $logProvider,   $mdInkRippleProvider, config) {
+
+  $compileProvider.debugInfoEnabled(config.DEBUG);
+  $logProvider.debugEnabled(config.DEBUG);
+
+  if(config.MD_INK === 'false')
+    $mdInkRippleProvider.disableInkRipple();
+
+  $locationProvider
+    .html5Mode(true)
+    .hashPrefix('!');
+}
 ```
 
 ## Install
