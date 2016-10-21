@@ -2,15 +2,16 @@
  * Main controller
  */
 
-function MainController ($scope, users, config, $feathers) {
+function MainController ($scope, $log, users, config, $feathers) {
   var vm = this;
   $scope.moduleName = config.MODULE_NAME;
 
   $scope.logs = [];
   $scope.logService = $feathers.service('log');
 
+  $log.debug('Debug mode enabled.');
   vm.logFeathers = function() {
-    console.log($feathers);
+    $log.debug($feathers);
   };
 
   //Log user connection to feathers log service
@@ -18,7 +19,7 @@ function MainController ($scope, users, config, $feathers) {
 
   //Handle new log from feathers log service
   $scope.logService.on('created', function (log) {
-        console.log(log);
+        $log.debug(log);
         $scope.logs.push(log);
   });
 

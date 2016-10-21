@@ -75,7 +75,7 @@ app.listen(port, function() {
 
 // Log API server start
 app.service('log').create({
-  text: "START",
+  text: "API_START",
   createdAt: Date.now()
 }).then(function(log) {
   console.log('log:', JSON.stringify(log));

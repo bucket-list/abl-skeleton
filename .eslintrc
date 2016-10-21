@@ -15,7 +15,7 @@
     "comma-dangle": [2, "never"],
     "no-cond-assign": [2, "always"],
     "no-debugger": 1,
-    "no-console": 0,
+    "no-console": 1,
     "no-constant-condition": 2,
     "no-control-regex": 2,
     "no-dupe-args": 2,
