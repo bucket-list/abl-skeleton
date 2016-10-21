@@ -36,15 +36,11 @@ MD_INK=false
 
 The contents of this file can be accessed in HTML / Javascript. For example:
 
-.js
-```javascript
-var moduleName = '/* @echo MODULE_NAME */';
-```
-
-.html
+*src/views/index.html*
 ```html
 <html ng-app="<!-- @echo MODULE_NAME -->">
 ```
+
 *src/components/config/config.constant.js*
 ```javascript
 var config = {
