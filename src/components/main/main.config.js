@@ -4,7 +4,6 @@
 
 function main ($locationProvider, $compileProvider, $logProvider, config) {
 
-  // @if NODE_ENV='production'
   $compileProvider.debugInfoEnabled(config.DEBUG);
   $logProvider.debugEnabled(config.DEBUG);
 

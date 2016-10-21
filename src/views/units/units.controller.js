@@ -2,19 +2,20 @@
  * Main controller
  */
 
-function UnitsController ($scope, users, config, $feathers) {
+function UnitsController ($scope, users, config, $feathers, $log) {
   var vm = this;
-
-  $scope.units = [];
+  vm.units = [];
   $scope.unitService = $feathers.service('units');
-
-  vm.unitFeathers = function() {
-    console.unit($feathers);
-  };
 
   // Get units
   $scope.unitService.find({}).then(function(units) {
-    console.log(units);
+    vm.units = units.data;
+    $log.debug(vm.units);
+    $scope.safeApply();
   });
+
+  vm.logUnits = function() {
+    $log.debug(vm.units);
+  };
 
 }

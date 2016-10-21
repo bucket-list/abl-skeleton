@@ -1,9 +1,4 @@
 function DocumentsController () {
   var vm = this;
-
-  this.documents = [{
-    name: ''
-  }, {
-    name: ''
-  }];
+  vm.documents = [{name: 1},{name: 2},{name: 3}];
 }
