@@ -54,7 +54,6 @@ var config = {
 *src/components/main/main.config.js*
 ```javascript
 function main ($locationProvider, $compileProvider, $logProvider,   $mdInkRippleProvider, config) {
-
   $compileProvider.debugInfoEnabled(config.DEBUG);
   $logProvider.debugEnabled(config.DEBUG);
 
