@@ -24,7 +24,15 @@ Define environment variables used to configure the build of the client-side Angu
 MODULE_NAME=abl
 FEATHERS_URL=http://localhost:3030
 DEBUG=true
+MD_INK=false
 ```
+| Variable | Type | Default | Description |
+| :--------| :----| :-------| :-----------|
+| MODULE_NAME | String | abl | Main application module name. |
+| FEATHERS_URL | String | http://localhost:3030 | Feathers.js API server URL. |
+| DEBUG | Boolean | true | Enable/disable application-wide debugging message output. |
+| MD_INK | Boolean | false | Enable/disable application-wide md-ink effect. |
+
 
 The contents of this file can be accessed in HTML / Javascript. For example:
 
@@ -102,7 +110,7 @@ function MainController ($scope, $log, config) {
 ESLint will throw a warning for 'no-console' if you forget this principal and use console.log().
 
 ## 'Safe' $apply in Angular.js
-To avoid triggering the '$apply already in progress' error (for me I find I hit most often when integrating third party plugins that trigger a lot of DOM events), you can use a 'safeApply' method that checks the current phase before executing your function. This is patched into the $scope object of topmost controller (NavController), and Angular propagates it throughout the rest of the application:
+To avoid triggering the *$apply already in progress error* (for me I find I hit most often when integrating third party plugins that trigger a lot of DOM events), you can use a 'safeApply' method that checks the current phase before executing your function. This is patched into the $scope object of topmost controller (NavController), and Angular propagates it throughout the rest of the application:
 
 ```javascript
 $scope.safeApply = function(fn) {
