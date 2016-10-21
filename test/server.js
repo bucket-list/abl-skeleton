@@ -47,10 +47,24 @@ app.use('/units', service({
   }
 }));
 
+// Properties db
+const propertiesDb = new NeDB({
+  filename: './test/api/properties',
+  autoload: true
+});
+
+app.use('/properties', service({
+  Model: propertiesDb,
+  paginate: {
+    default: 10,
+    max: 1000
+  }
+}));
+
 // Generate local db from sample .js data
-// var units = require('./api/unit.samples.js');
+// const units = require('./api/properties.samples.js');
 // units.forEach(function(unit) {
-//   app.service('units').create(unit);
+//   app.service('properties').create(unit);
 // });
 
 // Start the server.
