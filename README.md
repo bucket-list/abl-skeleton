@@ -90,7 +90,17 @@ Unit testing with [Karma](http://karma-runner.github.io/1.0/index.html), [Jasmin
 ## Logging / Debugging
 ALWAYS use Angular's built-in $logProvider and $log.debug() for logging to console for debugging purposes. This way, we can enable/disable logging application-wide for development and production simply by changing the DEBUG boolean variable in the .env file.
 
-ESLint will warn you if you forget the rules and use console.log like a ninnymuggins.
+```javascript
+function MainController ($scope, $log, config) {
+  var vm = this;
+  $scope.moduleName = config.MODULE_NAME;
+
+  $log.debug('Debug mode enabled.');
+
+}
+```
+
+ESLint will throw warnings if you forget the rules and use console.log like a ninnymuggins.
 
 ## 'Safe' $apply in Angular.js
 To avoid triggering the '$apply already in progress' error (for me I find I hit most often when integrating third party plugins that trigger a lot of DOM events), you can use a 'safeApply' method that checks the current phase before executing your function. This is patched into the $scope object of topmost controller, NavController, and Angular is nice enough to propagate it throughout the rest of the application:
