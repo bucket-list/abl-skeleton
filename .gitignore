@@ -12,4 +12,4 @@ target
 coverage
 
 #test API logs
-test/api/log
+test/api/log.db
