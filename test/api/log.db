@@ -1,3 +1,5 @@
+{"text":"CONNECT","createdAt":1477023903367,"_id":"4ocrohR3GeAYgcwt"}
+{"text":"CONNECT","createdAt":1477023795565,"_id":"64yZHZnr6NGqe201"}
 {"text":"apiSTART","createdAt":1476991841205,"_id":"6WRnbWvbObFk0Rpj"}
 {"text":"CONNECT","createdAt":1477005978711,"_id":"72NvOjdHPpODFkw7"}
 {"text":"CONNECT","createdAt":1477020962277,"_id":"7OkIna2Vg8rHYar4"}
@@ -5,6 +7,7 @@
 {"text":"CONNECT","createdAt":1477023309719,"_id":"7x740VvScJElBIkd"}
 {"text":"CONNECT","createdAt":1477023211725,"_id":"AuzWui66bLmBvYLi"}
 {"text":"CONNECT","_id":"Az3JOpTda9A1suaB"}
+{"text":"CONNECT","createdAt":1477023864811,"_id":"BS6ouo64pEIUZRJN"}
 {"text":"CONNECT","createdAt":1477007008567,"_id":"BX0IgRcUHcS4WRGX"}
 {"text":"START","createdAt":1476993163938,"_id":"C0CpudI5Esbsbnq0"}
 {"text":"API_START","createdAt":1477022817362,"_id":"DHJcdpVrBRhbryaw"}
@@ -59,6 +62,7 @@
 {"text":"CONNECT","createdAt":1477006651441,"_id":"peiRBjl0tzUB3a71"}
 {"text":"CONNECT","createdAt":1477007873296,"_id":"qbIsdSYpdjLaI04d"}
 {"text":"API_START","createdAt":1477023166595,"_id":"rBO6sKAsWtQ73e2D"}
+{"text":"CONNECT","createdAt":1477023948723,"_id":"rrH0csLkF3g6b4OV"}
 {"text":"CONNECT","createdAt":1477023169989,"_id":"rvyLYWyU6BtzGi6S"}
 {"text":"CONNECT","createdAt":1477020851760,"_id":"rwooRfK4u76xFUpi"}
 {"text":"CONNECT","createdAt":1477020844735,"_id":"so1E3UPftPQnyhVM"}
@@ -71,9 +75,8 @@
 {"text":"START","createdAt":1477007971544,"_id":"xdXMoYmNYX4VTyta"}
 {"text":"START","createdAt":1476992363249,"_id":"y3Xig8gyAkA3bLXN"}
 {"text":"CONNECT","createdAt":1477020823361,"_id":"ylleIR0PzWKMgcd6"}
-{"text":"START","createdAt":1477008246776,"_id":"zk1Y1qlOzRuKBgzF"}
 {"text":"API_START","createdAt":1477023792453,"_id":"zJII2xCklj8phZPi"}
-{"text":"CONNECT","createdAt":1477023795565,"_id":"64yZHZnr6NGqe201"}
-{"text":"CONNECT","createdAt":1477023864811,"_id":"BS6ouo64pEIUZRJN"}
-{"text":"CONNECT","createdAt":1477023903367,"_id":"4ocrohR3GeAYgcwt"}
-{"text":"CONNECT","createdAt":1477023948723,"_id":"rrH0csLkF3g6b4OV"}
+{"text":"START","createdAt":1477008246776,"_id":"zk1Y1qlOzRuKBgzF"}
+{"text":"API_START","createdAt":1477025420779,"_id":"rpCGhDegaEpekOWL"}
+{"text":"CONNECT","createdAt":1477025424145,"_id":"pWWE6p5RpgWv0DyL"}
+{"text":"CONNECT","createdAt":1477025432523,"_id":"iMu3CttQsL6JFIBx"}
