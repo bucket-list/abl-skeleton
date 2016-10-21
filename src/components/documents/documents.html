@@ -1,11 +1,42 @@
 <ul>
-  <li ng-repeat="document in vm.documents">
+  <li>
   	<md-card>
 		<md-card-content>
-			<h2>{{document.name}}</h2>
+			<h2>Primary</h2>
 		</md-card-content>
 		<div class="md-actions" layout="row" layout-align="start center">
-		   <md-button>Button</md-button>
+		   <md-button class="md-raised">Raised</md-button>
+       <md-button class="md-raised md-primary md-hue-1">Primary-1</md-button>
+       <md-button class="md-raised md-primary md-hue-2">Primary-2</md-button>
+       <md-button class="md-raised md-primary md-hue-3">Primary-3</md-button>
+		 </div>
+	</md-card>
+  </li>
+
+  <li>
+  	<md-card>
+		<md-card-content>
+			<h2>Accent</h2>
+		</md-card-content>
+		<div class="md-actions" layout="row" layout-align="start center">
+		   <md-button class="md-raised">Raised</md-button>
+       <md-button class="md-raised md-accent md-hue-1">accent-1</md-button>
+       <md-button class="md-raised md-accent md-hue-2">accent-2</md-button>
+       <md-button class="md-raised md-accent md-hue-3">accent-3</md-button>
+		 </div>
+	</md-card>
+  </li>
+
+  <li>
+  	<md-card>
+		<md-card-content>
+			<h2>Warn</h2>
+		</md-card-content>
+		<div class="md-actions" layout="row" layout-align="start center">
+		   <md-button class="md-raised">Raised</md-button>
+       <md-button class="md-raised md-warn md-hue-1">warn-1</md-button>
+       <md-button class="md-raised md-warn md-hue-2">warn-2</md-button>
+       <md-button class="md-raised md-warn md-hue-3">warn-3</md-button>
 		 </div>
 	</md-card>
   </li>

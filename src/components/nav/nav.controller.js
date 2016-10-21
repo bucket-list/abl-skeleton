@@ -3,6 +3,21 @@ function NavController ($scope, $state, $feathers, $log, deviceDetector, config)
 
   $scope.moduleName = config.MODULE_NAME;
   $scope.navOpen = true;
+
+  vm.themes = ['default','newTheme'];
+  vm.themeIndex = 0;
+
+  $scope.theme = 'newTheme';
+  $scope.changeTheme = function() {
+    if(vm.themeIndex === vm.themes.length - 1) {
+      vm.themeIndex = 0;
+    }
+    else {
+      vm.themeIndex++;
+    }
+    $scope.theme = vm.themes[vm.themeIndex];
+    $scope.safeApply();
+  };
   vm.device = deviceDetector;
 
   $log.debug('Debugging enabled.');
