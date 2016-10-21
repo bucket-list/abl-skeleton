@@ -12,5 +12,6 @@ angular
 	'ui.router',
 	'ngMaterial',
 	'templates',
-	'ngFeathers'
+	'ngFeathers',
+  'ng.deviceDetector'
 ]);

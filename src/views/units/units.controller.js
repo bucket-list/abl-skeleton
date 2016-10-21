@@ -2,11 +2,9 @@
  * Main controller
  */
 
-function UnitsController ($scope, users, config, $feathers, $log) {
+function UnitsController ($scope, users, config, $log) {
   var vm = this;
   vm.units = [];
-
-  $scope.unitService = $feathers.service('units');
 
   // Get units
   $scope.unitService.find({}).then(function(units) {
