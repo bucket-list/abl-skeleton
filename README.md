@@ -67,6 +67,15 @@ function main ($locationProvider, $compileProvider, $logProvider,   $mdInkRipple
 }
 ```
 
+*src/components/main/feathers.config.js*
+```javascript
+function feathers ($feathersProvider, config) {
+    $feathersProvider.setEndpoint(config.FEATHERS);
+    // You can optionally provide additional opts for socket.io-client
+    $feathersProvider.useSocket(true);
+}
+```
+
 ## Install
 ```
 npm install -g gulp requirejs karma karma-chrome-launcher jasmine-core
