@@ -92,9 +92,7 @@ ALWAYS use Angular's built-in $logProvider and $log.debug() for logging to conso
 
 ```javascript
 function MainController ($scope, $log, config) {
-  var vm = this;
-  $scope.moduleName = config.MODULE_NAME;
-
+  // Only printed to console if debug mode is enabled.
   $log.debug('Debug mode enabled.');
 }
 ```
