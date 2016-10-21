@@ -20,7 +20,7 @@ var app = feathers()
 
 // Logging db
 const logDb = new NeDB({
-  filename: './test/api/log',
+  filename: './test/api/log.db',
   autoload: true
 });
 
@@ -35,7 +35,7 @@ app.use('/log', service({
 
 // Units db
 const unitDb = new NeDB({
-  filename: './test/api/units',
+  filename: './test/api/units.db',
   autoload: true
 });
 
@@ -49,7 +49,7 @@ app.use('/units', service({
 
 // Properties db
 const propertiesDb = new NeDB({
-  filename: './test/api/properties',
+  filename: './test/api/properties.db',
   autoload: true
 });
 
