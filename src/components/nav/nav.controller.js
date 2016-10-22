@@ -1,13 +1,17 @@
 function NavController ($scope, $state, $feathers, $log, deviceDetector, config) {
   var vm = this;
+  $log.debug('Debugging enabled.');
 
   $scope.moduleName = config.MODULE_NAME;
   $scope.navOpen = true;
 
+  vm.device = deviceDetector;
   vm.themes = ['default','newTheme'];
   vm.themeIndex = 0;
 
+  // Application-wide UI theme.
   $scope.theme = 'newTheme';
+  // Change to next available UI theme.
   $scope.changeTheme = function() {
     if(vm.themeIndex === vm.themes.length - 1) {
       vm.themeIndex = 0;
@@ -18,9 +22,6 @@ function NavController ($scope, $state, $feathers, $log, deviceDetector, config)
     $scope.theme = vm.themes[vm.themeIndex];
     $scope.safeApply();
   };
-  vm.device = deviceDetector;
-
-  $log.debug('Debugging enabled.');
 
   // Application-wide safeApply function for usage in child controllers as
   // better alternative to $apply();
@@ -49,7 +50,7 @@ function NavController ($scope, $state, $feathers, $log, deviceDetector, config)
   $scope.logs = [];
   //Log user connection and os/browser information to Feathers log service.
   $scope.logService.create({
-    text:            'CONNECT',
+    text:            'CLIENT_CONNECTED',
     os:              vm.device.os,
     os_version:      vm.device.os_version,
     browser:         vm.device.browser,

@@ -13,7 +13,7 @@ function theme ($mdThemingProvider) {
    .primaryPalette('red')
    .accentPalette('teal')
    .warnPalette('pink')
-   .backgroundPalette('grey');
+   .backgroundPalette('grey').dark();
 
   // Enable browser color for mobile devices.
   $mdThemingProvider.enableBrowserColor({
