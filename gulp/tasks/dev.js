@@ -33,7 +33,7 @@ gulp.task( 'server:restart', function() {
     });
 });
 
-gulp.task('browser-sync', ['html', 'scripts', 'styles', 'watch'], function (callback) {
+gulp.task('browser-sync', ['pug', 'html', 'scripts', 'styles', 'watch'], function (callback) {
   browserSync.init({
     server: {
       baseDir: ['.tmp'],

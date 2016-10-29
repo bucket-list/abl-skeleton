@@ -4,6 +4,7 @@ var htmlReplace = require('gulp-html-replace');
 var htmlMinify = require('gulp-minify-html');
 var gutil = require('gulp-util');
 var preprocess = require('gulp-preprocess');
+var pug = require('gulp-pug');
 
 var common = require('../common');
 
@@ -34,4 +35,14 @@ gulp.task('html:dist', ['html'], function () {
       loose: false
     }))
     .pipe(gulp.dest('target/dist'));
+});
+
+
+// Compile pug/jade templates into .html
+gulp.task('pug', function buildHTML() {
+  return gulp.src('src/**/*.jade')
+  .pipe(pug({
+    // Your options in here.
+  }))
+  .pipe(gulp.dest('src'));
 });

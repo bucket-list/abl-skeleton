@@ -151,6 +151,16 @@ Usage within child controllers throughout the Angular application:
 $scope.safeApply();
 ```
 
+## Theming
+**ALWAYS** use Angular's built-in $logProvider and $log.debug() for logging to console for debugging purposes. This way we can enable/disable logging application-wide for development and production simply by changing the DEBUG boolean variable in the .env file.
+
+```javascript
+function MainController ($scope, $log, config) {
+  // Only printed to console if debug mode is enabled.
+  $log.debug('Debug mode enabled.');
+}
+```
+
 ## Feathers.js API Server
 - The test/server.js file starts a local instance of the same Express/Feathers.js server environment hosted on the backend.
 - Sample data is persisted with NeDB which uses flat-file databases locally -- so no need to configure MongoDB on your development system.
