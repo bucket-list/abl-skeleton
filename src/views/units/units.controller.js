@@ -9,7 +9,7 @@ function UnitsController ($scope, users, config, $log) {
   // Get units
   $scope.unitService.find({}).then(function(units) {
     vm.units = units.data;
-    $log.debug('Feathers units: ', units);
+    $log.debug('find({}) units: ', units);
     $scope.safeApply();
   });
 

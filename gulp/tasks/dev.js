@@ -21,14 +21,14 @@ gulp.task('syncRestart', function () {
   browserSync.reload();
 });
 
-// run server
+// Start server
 gulp.task( 'server:start', function() {
-    server.listen( { path: 'test/server.js' } );
+    server.listen( { path: 'server/server.js' } );
 });
 
 // Watch server file restart server on file changed.
 gulp.task( 'server:restart', function() {
-    gulp.watch( [ 'test/server.js' ], function() {
+    gulp.watch( [ 'server/server.js' ], function() {
       runSequence(['syncRestart']);
     });
 });

@@ -3,8 +3,8 @@ function theme ($mdThemingProvider) {
 
   $mdThemingProvider
     .theme('default')
-    .primaryPalette('blue-grey')
-    .accentPalette('purple')
+    .primaryPalette('blue')
+    .accentPalette('lime')
     .warnPalette('red')
     .backgroundPalette('grey');
 
@@ -12,8 +12,8 @@ function theme ($mdThemingProvider) {
    .theme('newTheme')
    .primaryPalette('red')
    .accentPalette('teal')
-   .warnPalette('pink')
-   .backgroundPalette('grey').dark();
+   .warnPalette('yellow')
+   .backgroundPalette('grey');
 
   // Enable browser color for mobile devices.
   $mdThemingProvider.enableBrowserColor({

@@ -10,7 +10,7 @@ function NavController ($scope, $state, $feathers, $log, deviceDetector, config)
   vm.themeIndex = 0;
 
   // Application-wide UI theme.
-  $scope.theme = 'newTheme';
+  $scope.theme = 'default';
   // Change to next available UI theme.
   $scope.changeTheme = function() {
     if(vm.themeIndex === vm.themes.length - 1) {
@@ -35,7 +35,6 @@ function NavController ($scope, $state, $feathers, $log, deviceDetector, config)
       this.$apply(fn);
     }
   };
-
   // State change logic for ui-router to manage navigation changes.
   $scope.changeState = function (state) {
     $log.debug('STATE', state);
@@ -46,6 +45,8 @@ function NavController ($scope, $state, $feathers, $log, deviceDetector, config)
   $scope.logService = $feathers.service('log');
   // Feathers unit service.
   $scope.unitService = $feathers.service('units');
+  // Feathers property service.
+  $scope.propertyService = $feathers.service('properties');
   //Array to store logged messages.
   $scope.logs = [];
   //Log user connection and os/browser information to Feathers log service.
@@ -58,9 +59,10 @@ function NavController ($scope, $state, $feathers, $log, deviceDetector, config)
     device:          vm.device.device,
     createdAt:       Date.now()
   });
+
   //Handle new log from Feathers log service
   $scope.logService.on('created', function (log) {
-        $log.debug('Feathers log:   ', log);
+        $log.debug('Log', log);
         $scope.logs.push(log);
   });
   //Function to output $feathers object to console for debugging.

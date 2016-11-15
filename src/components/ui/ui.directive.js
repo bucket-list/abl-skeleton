@@ -1,7 +1,7 @@
 function ui () {
   return {
     restrict: 'E',
-    templateUrl: 'ui/showcase.html',
+    templateUrl: 'ui/ui-demo.html',
     controller: 'UiController',
     bindToController: true,
     controllerAs: 'vm',

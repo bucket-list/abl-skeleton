@@ -1,7 +1,3 @@
-/**
- * This is the main route :)
- */
-
 function units ($stateProvider) {
 
   $stateProvider.state('units', {
