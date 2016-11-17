@@ -3,6 +3,7 @@
 
 @import "angular-material.scss";
 @import "material-performance.scss";
+@import "angular-material-icons.scss";
 @import "scrollbar.scss";
 
 // do not touch
@@ -12,3 +13,6 @@
 @import "generic/**/*.scss";
 @import "../components/**/*.scss";
 @import "../views/**/*.scss";
+
+//Browsersync message
+#__bs_notify__ { top:95% !important; right: 10px !important; border-radius: 15px !important; height:60px !important; }

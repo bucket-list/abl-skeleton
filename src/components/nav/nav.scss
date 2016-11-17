@@ -1,21 +1,56 @@
 md-sidenav {
+  background-color: transparent !important;
   height: 100%;
-  width: 280px;
+  width: 160px;
+  letter-spacing: 0 !important;
 }
 
 .left-nav {
-  -webkit-box-shadow: 1px 0px 2px 0px rgba(0,0,0,0.2);
-  -moz-box-shadow: 1px 0px 2px 0px rgba(0,0,0,0.2);
-  box-shadow: 1px 0px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: 3px 0 6px rgba(0,0,0,0.24);
   z-index: 2000 !important;
+  letter-spacing: 0 !important;
+}
+
+.left-nav-thin {
+  box-shadow: 3px 0 6px rgba(0,0,0,0.24);
+  width: 64px !important;
+  min-width: 64px !important;
+  max-width: 64px !important;
+  z-index: 2000 !important;
+}
+
+.icon-button-text {
+  padding-right: 6px;
+}
+
+.md-heavy {
+  font-weight: bold;
+}
+
+.no-text-transform {
+    text-transform: none;
 }
 
 .md-button:not([disabled]).md-focused {
   background-color: inherit;
 }
 
-.nav-item {
+.nav-item, .nav-item .md-button {
+  letter-spacing: 0 !important;
+  font-weight: 700 !important;
+}
 
+.nav-item-thin, .nav-item-thin .md-button {
+  height: 72px;
+  width: 72px !important;
+  min-width: 72px !important;
+  max-width: 72px !important;
+  text-align: center !important;
+  font-size: 0.6em;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0 !important;
+  padding: 0 !important;
 }
 
 .nav-list {
@@ -23,6 +58,6 @@ md-sidenav {
 }
 
 .top-nav {
-  box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
   z-index: 2001 !important;
 }

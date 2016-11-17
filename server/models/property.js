@@ -22,7 +22,7 @@ const PropertySchema = new Schema({
   location: LocationSchema,
   tagline: {
     type: String,
-    'default': ""
+    'default': "New Property"
   },
   timeZone: {
     type: String,

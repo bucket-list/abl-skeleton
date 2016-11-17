@@ -5,14 +5,13 @@ function PropertiesController ($scope, users, config, $log) {
   vm.total      = 0;
   vm.position   = 0;
 
-  vm.viewLayout = 'icons/view_list.svg';
+  vm.viewLayout = 'view_list';
 
   vm.toggleView = function() {
-    if(vm.viewLayout === 'icons/view_list.svg'){
-      vm.viewLayout = 'icons/view_module.svg';
-    }
-    else {
-      vm.viewLayout = 'icons/view_list.svg';
+    if(vm.viewLayout === 'view_list'){
+      vm.viewLayout = 'view_module';
+    } else {
+      vm.viewLayout = 'view_list';
     }
   };
 
@@ -27,7 +26,7 @@ function PropertiesController ($scope, users, config, $log) {
   };
 
   vm.addProperty = function() {
-      $scope.propertyService.create({}).then(function () {
+      $scope.propertyService.create({title: Date.now()}).then(function () {
         $log.debug('propertyService.create()');
         vm.getProperties();
         $scope.safeApply();

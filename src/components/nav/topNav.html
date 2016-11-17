@@ -1,7 +1,29 @@
 <md-toolbar class="top-nav">
   <div class="md-toolbar-tools top-nav">
 
+    <!-- <md-button class="md-raised md-fab md-mini md-primary md-hue-2" ng-click="toggleNav()" aria-label="collapse sidenav"> -->
+    <md-button class="md-icon-button" ng-click="toggleNav()" aria-label="settings">
+      <ng-md-icon icon={{navCollapseIcon}} options={{iconTransitionOptions}}></ng-md-icon>
+    </md-button>
+
     <span flex></span>
-    <md-button class="md-raised md-primary md-hue-2" ng-click="changeTheme()">Theme</md-button>
+
+    <md-button class="md-heavy" ng-click="changeTheme()" aria-label="">
+      Kevin Adams
+      <!-- <ng-md-icon icon="login"></ng-md-icon> -->
+    </md-button>
+
+    <md-button class="md-icon-button" ng-click="changeTheme()" aria-label="change theme">
+      <ng-md-icon icon="format_paint"></ng-md-icon>
+    </md-button>
+
+    <md-button class="md-icon-button" ng-click="changeTheme()" aria-label="settings">
+      <ng-md-icon icon="settings"></ng-md-icon>
+    </md-button>
+
+    <md-button class="md-icon-button" ng-click="changeTheme()" aria-label="help">
+      <ng-md-icon icon="help_outline"></ng-md-icon>
+    </md-button>
+
   </div>
 </md-toolbar>

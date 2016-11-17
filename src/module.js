@@ -13,5 +13,6 @@ angular
 	'ngMaterial',
 	'templates',
 	'ngFeathers',
-  'ng.deviceDetector'
+  'ng.deviceDetector',
+  'ngMdIcons'
 ]);

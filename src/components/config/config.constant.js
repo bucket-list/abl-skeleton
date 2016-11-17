@@ -9,6 +9,7 @@ var config = {
   MODULE_NAME: '/* @echo MODULE_NAME */',
   FEATHERS: '/* @echo FEATHERS_URL */',
   FEATHERS_LOG: '/* @echo FEATHERS_LOG */',
+  LOG_URL: '/* @echo LOG_URL */',
   DEBUG: '/* @echo DEBUG */',
   MD_INK: '/* @echo MD_INK */'
 };

@@ -8,6 +8,7 @@
 
     <!-- build:css -->
     <link rel="stylesheet" href="generated-styles/main.css" />
+
     <!-- endbuild -->
 
   </head>
@@ -20,7 +21,7 @@
     <section layout="row" flex>
 
       <!--  Left side navigation-->
-      <div ng-include="'nav/leftNav.html'" class="left-nav"></div>
+      <div ng-include="navView()" class="left-nav" md-colors="{background: 'primary-hue-2'}"></div>
 
       <!-- Application content -->
       <md-content layout="column" flex>
@@ -39,6 +40,8 @@
       <script src="node_modules/angular-animate/angular-animate.js"></script>
       <script src="node_modules/angular-aria/angular-aria.min.js"></script>
       <script src="node_modules/angular-material/angular-material.min.js"></script>
+      <script src="node_modules/angular-material-icons/angular-material-icons.min.js"></script>
+      <script src="node_modules/svg-morpheus/compile/minified/svg-morpheus.js"></script>
 
       <script src="node_modules/angular-socket-io/socket.min.js"></script>
       <script src="node_modules/feathers-client/dist/feathers.js"></script>
