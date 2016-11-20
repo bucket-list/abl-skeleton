@@ -2,7 +2,7 @@
  * Main controller
  */
 
-function UnitsController ($scope, users, config, $log) {
+function UnitsController ($scope, config, $log) {
   var vm = this;
   vm.units = [];
 

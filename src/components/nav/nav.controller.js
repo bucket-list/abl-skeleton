@@ -1,4 +1,4 @@
-function NavController ($scope, $state, $feathers, $window, $log, logSocket, deviceDetector, config) {
+function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBottomSheet, $mdToast, $log, logSocket, deviceDetector, config) {
   var vm = this;
   $log.debug('Debugging enabled.');
   $log.debug('$feathers ', $feathers);
@@ -6,6 +6,13 @@ function NavController ($scope, $state, $feathers, $window, $log, logSocket, dev
 
   $scope.moduleName = config.MODULE_NAME;
   $scope.navOpen = true;
+  $scope.loading = true;
+
+  $rootScope.$on('$stateChangeSuccess',
+  function(event, toState, toParams, fromState, fromParams){});
+
+  $scope.user = {};
+  $scope.user.niceName = 'Kevin Adams';
 
   $scope.navType = 0;
 
@@ -19,7 +26,7 @@ function NavController ($scope, $state, $feathers, $window, $log, logSocket, dev
   };
 
   vm.device = deviceDetector;
-  vm.themes = ['default','newTheme', 'black'];
+  vm.themes = ['default','newTheme', 'black','purple'];
   vm.themeIndex = 0;
 
   // Application-wide UI theme.
@@ -107,4 +114,5 @@ function NavController ($scope, $state, $feathers, $window, $log, logSocket, dev
   $scope.logFeathers = function() {
     $log.debug($feathers);
   };
+
 }

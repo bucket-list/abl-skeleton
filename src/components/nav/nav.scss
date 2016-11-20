@@ -1,5 +1,5 @@
 md-sidenav {
-  background-color: transparent !important;
+  background-color: rgba(0,0,0,.3) !important;
   height: 100%;
   width: 160px;
   letter-spacing: 0 !important;
@@ -60,4 +60,9 @@ md-sidenav {
 .top-nav {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
   z-index: 2001 !important;
+}
+
+.info-nav {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+  z-index: 1999 !important;
 }

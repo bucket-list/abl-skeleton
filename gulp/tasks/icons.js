@@ -8,6 +8,8 @@ gulp.task('icons', ['load-env'], function (callback) {
   gulp
     .src([
       'src/icons/*.svg',
+      'src/icons/*.png',
+      'src/icons/*.ico',
       '!src/icons/_*.svg'
     ])
     .pipe(gulp.dest('.tmp/icons'))

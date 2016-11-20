@@ -2,6 +2,7 @@
 <html ng-app="<!-- @echo MODULE_NAME -->">
   <head>
     <base href="/">
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ABL</title>
@@ -22,11 +23,14 @@
 
       <!--  Left side navigation-->
       <div ng-include="navView()" class="left-nav" md-colors="{background: 'primary-hue-2'}"></div>
+      <section layout="column" flex>
+        <div ng-include="'nav/infoNav.html'"></div>
 
-      <!-- Application content -->
-      <md-content layout="column" flex>
-        <div id="view-container" ui-view></div>
-      </md-content>
+        <!-- Application content -->
+        <md-content layout="column" flex>
+          <div id="view-container" ui-view></div>
+        </md-content>
+      </section>
     </section>
 
     <!-- build:js -->

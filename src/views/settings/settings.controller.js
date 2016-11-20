@@ -1,4 +1,4 @@
-function PropertiesController ($scope, $state, $stateParams, config, $log) {
+function SettingsController ($scope, config, $log) {
   var vm = this;
   vm.properties = [];
   vm.limit      = 50;

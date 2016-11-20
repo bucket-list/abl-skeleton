@@ -1,4 +1,10 @@
 <md-toolbar class="top-nav">
+  <md-progress-linear
+    md-mode="indeterminate"
+    ng-disabled="loading"
+    class="md-accent md-hue-2">
+  </md-progress-linear>
+
   <div class="md-toolbar-tools top-nav">
 
     <!-- <md-button class="md-raised md-fab md-mini md-primary md-hue-2" ng-click="toggleNav()" aria-label="collapse sidenav"> -->
@@ -8,8 +14,13 @@
 
     <span flex></span>
 
+
+    <md-button class="md-icon-button" ng-click="loading = loading ? false : true" aria-label="change theme">
+      <ng-md-icon icon="access_time"></ng-md-icon>
+    </md-button>
+
     <md-button class="md-heavy" ng-click="changeTheme()" aria-label="">
-      Kevin Adams
+      {{user.niceName}}
       <!-- <ng-md-icon icon="login"></ng-md-icon> -->
     </md-button>
 
@@ -17,7 +28,7 @@
       <ng-md-icon icon="format_paint"></ng-md-icon>
     </md-button>
 
-    <md-button class="md-icon-button" ng-click="changeTheme()" aria-label="settings">
+    <md-button class="md-icon-button"  ng-click="changeState('settings')" aria-label="settings">
       <ng-md-icon icon="settings"></ng-md-icon>
     </md-button>
 

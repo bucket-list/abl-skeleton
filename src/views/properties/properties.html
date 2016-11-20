@@ -1,61 +1,51 @@
-<div layout="row" layout-margin>
+<div layout="row" layout-margin ng-cloak>
   <div layout="row" layout-align="start center" flex>
     <span class="md-headline">Properties</span>
   </div>
-
   <div layout="row" layout-align="end center">
     <md-button class="md-raised md-fab md-mini" aria-label="Toggle grid" ng-click="vm.toggleView()">
       <ng-md-icon icon={{vm.viewLayout}} style="fill: rgb(33,33,33)"
       options={{iconTransitionOptions}}></ng-md-icon>
-
     </md-button>
     <md-button class="md-raised" ng-click="vm.addProperty()">Add</md-button>
   </div>
+
 </div>
+<div layout="row" layout-align="start center">
+  <!-- <property title="test"></property> -->
+</div>
+<md-content class="md-padding" layout-xs="column" layout="row" ng-cloak>
+  <div flex layout="column">
+    <md-grid-list
+          md-cols="1" md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6"
+          md-row-height-gt-md="1:1" md-row-height="4:2"
+          md-gutter="8px" md-gutter-gt-sm="4px" class="gridListdemoDynamicTiles">
+
+      <md-grid-tile ng-repeat="property in vm.properties"
+                    md-rowspan="1"
+                    md-colspan="1"
+                    md-colspan-sm="2"
+                    md-colspan-xs="1"
+                    md-colors="{background: 'primary-hue-1'}">
+
+        <md-grid-tile-header layout-padding>
+          <div layout="row">
+            <p>{{property.tagline}}</p>
+            <span flex></span>
+            <ng-md-icon icon="delete" ng-click="vm.deleteProperty(property);" style="" options={{iconTransitionOptions}}></ng-md-icon>
+          </div>
+        </md-grid-tile-header>
+
+        <md-grid-tile-footer>
+          <div layout="row" layout-margin>
+            <p>$482</p>
+            <span flex></span>
+            <ng-md-icon icon="hotel" style="" options={{iconTransitionOptions}}></ng-md-icon>
+          </div>
+        </md-grid-tile-footer>
 
 
-<md-content class="md-padding" layout-xs="column" layout="row">
-
-<div flex layout="column">
-
-  <md-card>
-    <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
-    <md-card-title>
-      <md-card-title-text>
-        <span class="md-headline">In-card mixed actions</span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-actions layout="row" layout-align="start center">
-      <md-card-icon-actions>
-        <md-button class="md-icon-button" aria-label="Favorite" ng-style="{color: 'blue'}">
-          <ng-md-icon icon="send" style="fill: pink"></ng-md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="Share">
-          <md-icon md-svg-icon="icons/share.svg"></md-icon>
-        </md-button>
-      </md-card-icon-actions>
-      <md-button>Action 1</md-button>
-      <md-button>Action 2</md-button>
-    </md-card-actions>
-    <md-card-content>
-      <p>
-        The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-        two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
-      </p>
-    </md-card-content>
-  </md-card>
-
-  <div ng-repeat="property in vm.properties">
-    <md-card>
-      <md-card-content>
-        <h3>{{property.tagline}}</h3>
-        <p>Created {{property.createdAt}}</p>
-        <p>Updated {{property.updatedAt}}</p>
-      </md-card-content>
-    </md-card>
+      </md-grid-tile>
+    </md-grid-list>
   </div>
-
-
-</div>
-
 </md-content>

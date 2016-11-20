@@ -4,14 +4,14 @@ function theme ($mdThemingProvider) {
   $mdThemingProvider
     .theme('default')
     .primaryPalette('blue')
-    .accentPalette('amber')
+    .accentPalette('orange')
     .warnPalette('red')
     .backgroundPalette('grey');
 
   $mdThemingProvider
    .theme('newTheme')
    .primaryPalette('red')
-   .accentPalette('teal')
+   .accentPalette('blue')
    .warnPalette('yellow')
    .backgroundPalette('grey');
 
@@ -27,6 +27,20 @@ function theme ($mdThemingProvider) {
       'default': '200'
     })
     .warnPalette('red')
+    .backgroundPalette('grey');
+
+  $mdThemingProvider
+    .theme('purple')
+    .primaryPalette('indigo', {
+      'default': 'A400', // by default use shade 400 for primary intentions
+      'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
+      'hue-2': '800', // use shade 600 for the <code>md-hue-2</code> class
+      'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+    })
+    .accentPalette('yellow', {
+      'default': '200'
+    })
+    .warnPalette('yellow')
     .backgroundPalette('grey');
 
   // Enable browser color for mobile devices.
