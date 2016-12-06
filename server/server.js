@@ -3,9 +3,17 @@ const NeDB = require('nedb');
 const feathers = require('feathers');
 const handler = require('feathers-errors/handler');
 const rest = require('feathers-rest');
+const hooks = require('feathers-hooks');
 const socketio = require('feathers-socketio');
 const bodyParser = require('body-parser');
+
 const service = require('feathers-nedb');
+const blobService = require('feathers-blob');
+// Here we initialize a FileSystem storage,
+// but you can use feathers-blob with any other
+// storage service like AWS or Google Drive.
+const fs = require('fs-blob-store');
+const blobStorage = fs(__dirname + '/uploads');
 
 const mongoose = require('mongoose');
 const mongooseService = require('feathers-mongoose');
@@ -25,6 +33,8 @@ var app = feathers()
   .configure(rest())
   // Enable Socket.io services
   .configure(socketio())
+  // Register hooks module
+  .configure(hooks())
   // Turn on JSON parser for REST services
   .use(bodyParser.json())
   // Turn on URL-encoded parser for REST services
@@ -74,26 +84,57 @@ app.use('/units', service({
   }
 }));
 
-// Properties db
-// const propertiesDb = new NeDB({
-//   filename: './server/api/properties.db',
-//   autoload: true
-// });
-//
-// app.use('/properties', service({
-//   Model: propertiesDb,
-//   paginate: {
-//     default: 10,
-//     max: 1000
-//   }
-// }));
+const multer = require('multer');
+const multipartMiddleware = multer();
 
+// Upload Service with multipart support
+app.use('/uploads',
+
+    // multer parses the file named 'uri'.
+    // Without extra params the data is
+    // temporarely kept in memory
+    multipartMiddleware.single('uri'),
+
+    // another middleware, this time to
+    // transfer the received file to feathers
+    function(req,res,next){
+        console.log('file upload', req);
+        req.feathers.file = req.file;
+        next();
+    },
+    blobService({Model: blobStorage})
+);
+
+const dauria = require('dauria');
+
+// before-create Hook to get the file (if there is any)
+// and turn it into a datauri,
+// transparently getting feathers-blob to work
+// with multipart file uploads
+app.service('/uploads').before({
+    create: [
+        function(hook) {
+            if (!hook.data.uri && hook.params.file){
+                const file = hook.params.file;
+                const uri = dauria.getBase64DataURI(file.buffer, file.mimetype);
+                hook.data = {uri: uri};
+            }
+        }
+    ]
+});
 // Generate local db from sample .js data
 // const units = require('./api/properties.samples.js');
 // units.forEach(function(unit) {
 //   app.service('properties').create(unit);
 // });
 
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     res.addHeader("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+//     next();
+// });
 // Start the server.
 const port = 3030;
 app.listen(port, function() {

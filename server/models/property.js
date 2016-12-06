@@ -77,7 +77,11 @@ const PropertySchema = new Schema({
   charges: {
     type: [String],
     'default': []
-  }
+  },
+  status: {
+    type: String,
+    'default': '0'
+  },
 });
 
 PropertySchema.index({'updatedAt': -1, background: true});

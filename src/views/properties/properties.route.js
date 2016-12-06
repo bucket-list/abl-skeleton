@@ -17,44 +17,50 @@ function properties ($stateProvider) {
         $log.debug('STATE properties.list ', $stateParams);
       }
   })
-  .state('properties.details', {
-      url: '/:id/details',
-      templateUrl: 'properties/properties.create.html',
+  .state('details', {
+      url: '/properties/:propertyId',
+      templateUrl: 'properties/details/properties.details.html',
+      controller: 'PropertiesDetailsController',
+      controllerAs: 'vm'
+  })
+  .state('details.details', {
+      url: '/details',
+      templateUrl: 'properties/details/properties.info.html',
       controller: function($scope, $stateParams, $log){
         $log.debug($stateParams);
       }
   })
-  .state('properties.amenities', {
-      url: '/:id/amenities',
-      templateUrl: 'properties/properties.amenities.html',
+  .state('details.amenities', {
+      url: '/amenities',
+      templateUrl: 'properties/details/properties.amenities.html',
       controller: function($scope, $stateParams, $log){
         $log.debug($stateParams);
       }
   })
-  .state('properties.contact', {
-      url: '/:id/contact',
-      templateUrl: 'properties/properties.contact.html',
+  .state('details.contact', {
+      url: '/contact',
+      templateUrl: 'properties/details/properties.contact.html',
       controller: function($scope, $stateParams, $log){
         $log.debug($stateParams);
       }
   })
   .state('properties.rules', {
-      url: '/:id/rules',
+      url: '/rules',
       templateUrl: 'properties/properties.rules.html',
       controller: function($scope, $stateParams, $log){
         $log.debug($stateParams);
       }
   })
-  .state('properties.photos', {
-      url: '/:id/photos',
-      templateUrl: 'properties/properties.photos.html',
+  .state('details.photos', {
+      url: '/photos',
+      templateUrl: 'properties/details/properties.photos.html',
       controller: function($scope, $stateParams, $log){
         $log.debug($stateParams);
       }
   })
-  .state('properties.map', {
-      url: '/:id/map',
-      templateUrl: 'properties/properties.map.html',
+  .state('details.map', {
+      url: '/map',
+      templateUrl: 'properties/details/properties.map.html',
       controller: function($scope, $stateParams, $log){
         $log.debug($stateParams);
       }

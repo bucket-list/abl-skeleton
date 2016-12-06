@@ -14,5 +14,8 @@ angular
 	'templates',
 	'ngFeathers',
   'ng.deviceDetector',
-  'ngMdIcons'
+  'ngMdIcons',
+  'nemLogging',
+  'ui-leaflet',
+  'thatisuday.dropzone'
 ]);

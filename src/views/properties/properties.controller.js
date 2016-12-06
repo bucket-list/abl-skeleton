@@ -1,11 +1,12 @@
 function PropertiesController ($scope, $state, $stateParams, config, $log) {
   var vm = this;
   vm.properties = [];
+  vm.property   = {};
   vm.limit      = 50;
   vm.total      = 0;
   vm.position   = 0;
 
-  vm.viewLayout = 'view_list';
+  vm.viewLayout = 'view_module';
 
   vm.toggleView = function() {
     if(vm.viewLayout === 'view_list'){

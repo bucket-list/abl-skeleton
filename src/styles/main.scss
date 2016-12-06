@@ -5,7 +5,9 @@
 @import "material-performance.scss";
 @import "angular-material-icons.scss";
 @import "scrollbar.scss";
-
+@import "leaflet.scss";
+@import "dropzone.scss";
+@import "ng-dropzone.scss";
 // do not touch
 // @import "../../.tmp/generated/icons.scss";
 @import "vars/**/*.scss";
@@ -16,3 +18,131 @@
 
 //Browsersync message
 #__bs_notify__ { top:95% !important; right: 10px !important; border-radius: 15px !important; height:60px !important; }
+
+.main-view {
+  overflow-x: hidden !important; }
+
+body {
+  overflow-x:hidden; }
+
+  [ui-view].ng-enter, [ui-view].ng-leave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    -webkit-transition:all .5s ease-in-out;
+  	-moz-transition:all .5s ease-in-out;
+  	-o-transition:all .5s ease-in-out;
+  	transition:all .5s ease-in-out;
+  }
+
+  [ui-view].ng-enter {
+    opacity: 0;
+    -webkit-transform:scale3d(0.5, 0.5, 0.5);
+    -moz-transform:scale3d(0.5, 0.5, 0.5);
+    transform:scale3d(0.5, 0.5, 0.5);
+  }
+
+  [ui-view].ng-enter-active {
+    opacity: 1;
+    -webkit-transform:scale3d(1, 1, 1);
+    -moz-transform:scale3d(1, 1, 1);
+    transform:scale3d(1, 1, 1);
+  }
+
+  [ui-view].ng-leave {
+    opacity: 1;
+    /*padding-left: 0px;*/
+    -webkit-transform:translate3d(0, 0, 0);
+    -moz-transform:translate3d(0, 0, 0);
+    transform:translate3d(0, 0, 0);
+  }
+
+  [ui-view].ng-leave-active {
+    opacity: 0;
+    /*padding-left: 100px;*/
+    -webkit-transform:translate3d(100px, 0, 0);
+    -moz-transform:translate3d(100px, 0, 0);
+    transform:translate3d(100px, 0, 0);
+  }
+
+// Slide-in
+#view.slide-in.ng-enter,
+#view.slide-in.ng-leave      { position:absolute;
+    transition:0.75s all ease; -moz-transition:0.75s all ease; -webkit-transition:0.75s all ease;
+}
+
+#view.slide-in.ng-enter            {
+    -webkit-animation:slideInRight 0.75s both ease;
+	-moz-animation:slideInRight 0.75s both ease;
+	animation:slideInRight 0.75s both ease;
+}
+
+#view.slide-in.ng-leave            {
+    -webkit-animation:slideOutLeft 0.75s both ease;
+	-moz-animation:slideOutLeft 0.75s both ease;
+	animation:slideOutLeft 0.75s both ease;
+}
+
+@keyframes slideOutLeft {
+	to 		{ transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {
+	to 		{ -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+	to 		{ -webkit-transform: translateX(-200%); }
+}
+
+@keyframes slideInRight {
+	from 	{ transform:translateX(200%); }
+	to 		{ transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+	from 	{ -moz-transform:translateX(200%); }
+	to 		{ -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+	from 	{ -webkit-transform:translateX(200%); }
+	to 		{ -webkit-transform: translateX(0); }
+}
+
+// Fade-in
+#view.fade-in {
+  transition: .5s linear all;
+  -webkit-transition: .5s linear all;
+}
+#view.fade-in.ng-enter {
+  opacity: 0;
+  transition: 0.5s linear;
+}
+#view.fade-in.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+#view.fade-in.ng-leave {
+  opacity: 1;
+}
+#view.fade-in.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+// Scale
+#view.scale {
+  transition: 2s linear all;
+  -webkit-transition: 2s linear all;
+}
+#view.scale.ng-enter,
+#view.scale.ng-leave {
+    transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+}
+#view.scale.ng-enter.ng-enter-active,
+#view.scale.ng-leave {
+   transform: scaleY(1);
+    height: 30px;
+    opacity: 1;
+}
+#view.scale.ng-leave.ng-leave-active,
+#view.scale.ng-enter {
+  transform: scaleY(0);
+  height: 0px;
+    opacity: 0;
+}

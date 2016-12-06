@@ -24,11 +24,11 @@
       <!--  Left side navigation-->
       <div ng-include="navView()" class="left-nav" md-colors="{background: 'primary-hue-2'}"></div>
       <section layout="column" flex>
-        <div ng-include="'nav/infoNav.html'"></div>
+        <div ng-include="secondaryNavView()"></div>
 
         <!-- Application content -->
-        <md-content layout="column" flex>
-          <div id="view-container" ui-view></div>
+        <md-content layout="column" flex class="main-view">
+          <div id="view-container" class="main-view" ui-view></div>
         </md-content>
       </section>
     </section>
@@ -37,6 +37,9 @@
       <!-- build:node_modules -->
       <script src="node_modules/jquery/dist/jquery.js"></script>
       <script src="node_modules/socket.io-client/socket.io.js"></script>
+      <script src="node_modules/leaflet/dist/leaflet.js"></script>
+      <script src="node_modules/dropzone/dist/dropzone.js"></script>
+
       <script src="node_modules/angular/angular.js"></script>
 
       <script src="node_modules/angular-messages/angular-messages.min.js"></script>
@@ -53,6 +56,10 @@
 
       <script src="node_modules/ng-device-detector/bower_components/re-tree/re-tree.min.js"></script>
       <script src="node_modules/ng-device-detector/ng-device-detector.min.js"></script>
+
+      <script src="node_modules/angular-simple-logger/dist/angular-simple-logger.js"></script>
+      <script src="node_modules/ui-leaflet/dist/ui-leaflet.js"></script>
+      <script src="node_modules/ngdropzone/dist/ng-dropzone.js"></script>
       <!-- endbuild -->
 
       <!-- build:app -->

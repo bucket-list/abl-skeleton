@@ -54,18 +54,41 @@
   background: #ff80ab; }
 
 .gridListdemoDynamicTiles md-grid-tile {
-  transition: ease-in 400ms;
+  transition: all 350ms;
+}
+
+.gridListdemoDynamicTiles {
+  transition: all 100ms;
+}
+
+md-grid-tile {
+  border: 1px solid rgba(10,10,10,.35) !important;
+  box-shadow: 2px 2px 3px 0 rgba(0,0,0, 0.28) !important;
+  border-radius: 1px;
+}
+.md-button.md-raised.tileButton {
+  border: 1px solid rgba(10,10,10,.2) !important;
+  box-shadow: 1px 1px 2px 0 rgba(0,0,0, 0.28) !important;
+  opacity: 0.82;
+  font-size: 0.8em;
+  border-radius: 1px;
+  min-width: 48px;
+  width: 100%;
+  margin: 0px 4px;
+  padding: 0 8px;
+  text-transform: none;
 }
 
 .gridListdemoDynamicTiles md-grid-tile md-icon {
   padding-bottom: 32px; }
 
 .gridListdemoDynamicTiles md-grid-tile md-grid-tile-footer {
-  background: rgba(0, 0, 0, 0.68);
-  height: 36px; }
+  background: none;
+ }
 
 .gridListdemoDynamicTiles md-grid-tile-footer figcaption {
-  width: 100%; }
+  width: 100%;
+}
 
 .gridListdemoDynamicTiles md-grid-tile-footer figcaption h3 {
   margin: 0;

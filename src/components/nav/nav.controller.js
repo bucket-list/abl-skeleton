@@ -4,6 +4,12 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
   $log.debug('$feathers ', $feathers);
   $log.debug('logSocket ', logSocket);
 
+  // Watch app-wide state-changes
+  $rootScope.$on('$locationChangeStart',function(event, toState, toParams, fromState, fromParams){
+    //debug(event);
+    $log.debug('$locationChangeStart ', toState, $state);
+  });
+
   $scope.moduleName = config.MODULE_NAME;
   $scope.navOpen = true;
   $scope.loading = true;
@@ -22,6 +28,15 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
     }
     if($scope.navType === 1) {
       return 'nav/leftNavThin.html';
+    }
+  };
+
+  $scope.secondaryNavView = function() {
+    if(!$state.current.templateUrl) {
+      return '';
+    }
+    if($state.current.templateUrl.substr(0,18) === 'properties/details') {
+      return 'properties/details/properties.nav.html';
     }
   };
 
@@ -81,10 +96,21 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
     $state.go(state);
   };
 
+  $scope.gotoPage = function(page) {
+    $log.debug(page);
+    $state.go(page);
+  };
+
   // Feathers unit service.
   $scope.unitService = $feathers.service('units');
   // Feathers property service.
   $scope.propertyService = $feathers.service('properties');
+  // Feathers upload service.
+  $scope.uploadService = $feathers.service('uploads');
+
+  $scope.uploadService.on('created', function(file){
+                $log.debug('Server received file created event!', file);
+  });
   //Array to store logged messages.
   $scope.logs = [];
   //Log user connection and os/browser information to Feathers log service.
@@ -114,5 +140,35 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
   $scope.logFeathers = function() {
     $log.debug($feathers);
   };
+
+  //Dropzone file upload config
+  $scope.dzOptions = {
+        url : '/uploads',
+        paramName : 'uri',
+        maxFilesize : '100000',
+        acceptedFiles : 'image/jpeg, images/jpg, image/png',
+        addRemoveLinks : true
+    };
+
+
+    //Handle events for dropzone
+    //Visit http://www.dropzonejs.com/#events for more events
+    $scope.dzCallbacks = {
+        'addedfile' : function(file){
+            $log.debug(file);
+            $scope.newFile = file;
+        },
+        'success' : function(file, xhr){
+            $log.debug(file, xhr);
+        }
+    };
+
+
+    //Apply methods for dropzone
+    //Visit http://www.dropzonejs.com/#dropzone-methods for more methods
+    $scope.dzMethods = {};
+    $scope.removeNewFile = function(){
+        $scope.dzMethods.removeFile($scope.newFile); //We got $scope.newFile from 'addedfile' event callback
+    };
 
 }

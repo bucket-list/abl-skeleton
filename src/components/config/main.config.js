@@ -11,6 +11,6 @@ function main ($locationProvider, $compileProvider, $logProvider, $mdInkRipplePr
   }
 
   $locationProvider
-    .html5Mode(true)
+    .html5Mode(false)
     .hashPrefix('!');
 }

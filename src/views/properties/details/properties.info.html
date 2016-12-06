@@ -1,0 +1,96 @@
+<!-- <p>{{vm.property}}</p> -->
+<!-- languages
+type rating
+title
+tagline
+descriptionMaxLength -->
+
+  <!-- <md-content layout="column" layout-padding md-colors="{background: 'gray-100'}"> -->
+
+  <md-content layout="column" layout-padding>
+  <form name="propertyForm">
+
+    <md-input-container class="md-block">
+      <label>Title</label>
+      <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.title">
+      <div ng-messages="propertyForm.title.$error">
+        <div ng-message="required">This is required.</div>
+        <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+      </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+      <label>Tagline</label>
+      <input md-maxlength="30" required md-no-asterisk name="tagline" ng-model="vm.property.tagline">
+      <div ng-messages="propertyForm.tagline.$error">
+        <div ng-message="required">This is required.</div>
+        <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+      </div>
+    </md-input-container>
+
+    <div layout="row">
+      <md-input-container flex="50">
+        <label>Type</label>
+        <md-select name="type" ng-model="vm.property.type" required>
+          <md-option value="bnb">Bed and Breakfast</md-option>
+          <md-option value="hotel">Hotel</md-option>
+          <md-option value="pension">Pension</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container flex="50">
+        <label>Rating</label>
+        <input name="diamonds" ng-model="vm.property.diamonds">
+      </md-input-container>
+    </div>
+
+    <!-- <md-input-container class="md-block">
+      <label>Client Email</label>
+      <input required type="email" name="clientEmail" ng-model="project.clientEmail"
+             minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+      <div ng-messages="propertyForm.clientEmail.$error" role="alert">
+        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+          Your email must be between 10 and 100 characters long and look like an e-mail address.
+        </div>
+      </div>
+    </md-input-container> -->
+
+    <!-- <md-input-container class="md-block">
+      <label>Hourly Rate (USD)</label>
+      <input required type="number" step="any" name="rate" ng-model="project.rate" min="800"
+             max="4999" ng-pattern="/^1234$/" />
+
+      <div ng-messages="propertyForm.rate.$error" multiple md-auto-hide="false">
+        <div ng-message="required">
+          You've got to charge something! You can't just <b>give away</b> a Missile Defense
+          System.
+        </div>
+
+        <div ng-message="min">
+          You should charge at least $800 an hour. This job is a big deal... if you mess up,
+          everyone dies!
+        </div>
+
+        <div ng-message="pattern">
+          You should charge exactly $1,234.
+        </div>
+
+        <div ng-message="max">
+          {{propertyForm.rate.$viewValue | currency:"$":0}} an hour? That's a little ridiculous. I
+          doubt even Bill Clinton could afford that.
+        </div>
+      </div>
+    </md-input-container> -->
+
+    <md-input-container class="md-block">
+      <label>Description</label>
+      <textarea ng-model="vm.property.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+    </md-input-container>
+
+    <div layout="row"  layout-align="end center">
+      <md-button type="submit" class="md-raised md-accent">Save & Continue</md-button>
+    </div>
+
+  </form>
+</md-content>
