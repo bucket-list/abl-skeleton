@@ -36,15 +36,14 @@ gulp.task('watch', ['load-env'], function () {
     'src/views/**/*.scss',
     'src/icons/**/*'
   ], function () {
-    gulp.start('styles');
+    runSequence(['styles', 'staging:styles']);
   });
 
   watch([
     'src/components/**/*.js',
     'src/views/**/*.js'
   ], function () {
-    gulp.start('scripts:components');
-    browserSync.reload();
+    runSequence(['scripts:components', 'syncRestart', 'staging:components']);
   });
 
   watch([
@@ -54,5 +53,7 @@ gulp.task('watch', ['load-env'], function () {
     '.tmp/generated-scripts/node_modules.js',
     '.tmp/generated-scripts/components.js',
     '.tmp/generated-scripts/templates.js'
-  ], browserSync.reload);
+  ], function () {
+    runSequence(['syncRestart', 'staging']);
+  });
 });

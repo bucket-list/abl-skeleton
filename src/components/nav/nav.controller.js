@@ -78,6 +78,7 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
     $scope.safeApply();
   };
 
+
   // Change to next available UI theme.
   $scope.changeTheme = function() {
     if(vm.themeIndex === vm.themes.length - 1) {
@@ -150,19 +151,26 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
         addRemoveLinks : true
     };
 
-
     //Handle events for dropzone
     //Visit http://www.dropzonejs.com/#events for more events
     $scope.dzCallbacks = {
         'addedfile' : function(file){
-            $log.debug(file);
+            $log.debug(file.name);
             $scope.newFile = file;
         },
         'success' : function(file, xhr){
-            $log.debug(file, xhr);
+            $log.debug('Upload success: ', xhr);
+        },
+        'uploadprogress' : function(file, progress, bytesSent){
+            $log.debug(progress);
+        },
+        'error' : function(file, errorMessage) {
+            $log.debug('File upload error: ', errorMessage);
+        },
+        'thumbnail' : function(file, dataUrl) {
+            //$log.debug('Upload thumbnail: ', dataUrl);
         }
     };
-
 
     //Apply methods for dropzone
     //Visit http://www.dropzonejs.com/#dropzone-methods for more methods

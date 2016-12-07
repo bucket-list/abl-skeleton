@@ -13,3 +13,5 @@ coverage
 
 #test API logs
 test/api/log.db
+
+.ftppass
