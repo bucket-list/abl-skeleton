@@ -78,6 +78,14 @@ const PropertySchema = new Schema({
     type: [String],
     'default': []
   },
+  languages: {
+    type: [String],
+    'default': ['French', 'English']
+  },
+  type: {
+    type: String,
+    'default': 'bnb'
+  },
   status: {
     type: String,
     'default': '0'

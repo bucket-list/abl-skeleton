@@ -100,3 +100,30 @@ figcaption {
   width: 100%;
   display: block;
 }
+
+fieldset {
+    display: block;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-before: 0;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+    -webkit-padding-after: 0;
+    min-width: -webkit-min-content;
+    border-width: 0;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+}
+
+legend {
+    color: rgba(0,0,0,0.54);
+    font-size: 12px;
+    display: block;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+}

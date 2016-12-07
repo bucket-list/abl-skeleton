@@ -10,6 +10,25 @@ descriptionMaxLength -->
   <md-content layout="column" layout-padding>
   <form name="propertyForm">
 
+    <div flex="100" flex-gt-sm="100" layout="column">
+          <div>
+            <!--
+              In IE, we cannot apply flex directly to <fieldset>
+              @see https://github.com/philipwalton/flexbugs#9-some-html-elements-cant-be-flex-containers
+            -->
+            <fieldset class="standard" >
+              <legend>Languages</legend>
+              <div layout="row" layout-wrap layout-align="start center" flex>
+                <div class="padding-top-right" ng-repeat="language in vm.languages">
+                  <md-checkbox ng-checked="exists(language, vm.languagesSelected)" ng-click="toggle(language, vm.languagesSelected)">
+                    {{ language }} <span ng-if="exists(language, vm.languagesSelected)"></span>
+                  </md-checkbox>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
     <md-input-container class="md-block">
       <label>Title</label>
       <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.title">
@@ -35,6 +54,7 @@ descriptionMaxLength -->
           <md-option value="bnb">Bed and Breakfast</md-option>
           <md-option value="hotel">Hotel</md-option>
           <md-option value="pension">Pension</md-option>
+          <md-option value="villa">Villa</md-option>
         </md-select>
       </md-input-container>
 
@@ -85,11 +105,11 @@ descriptionMaxLength -->
 
     <md-input-container class="md-block">
       <label>Description</label>
-      <textarea ng-model="vm.property.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      <textarea ng-model="vm.property.description" md-maxlength="2000" rows="5" md-select-on-focus></textarea>
     </md-input-container>
 
     <div layout="row"  layout-align="end center">
-      <md-button type="submit" class="md-raised md-accent">Save & Continue</md-button>
+      <md-button type="submit" class="md-raised md-accent" ng-click="vm.updateProperty()">Save & Continue</md-button>
     </div>
 
   </form>

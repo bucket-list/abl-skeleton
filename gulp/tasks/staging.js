@@ -11,7 +11,7 @@ gulp.task('staging', function () {
 });
 
 gulp.task('staging:components', function () {
-    return gulp.src(['.tmp/generated-scripts/templates.js', '.tmp/generated-scripts/components.js'])
+    return gulp.src(['.tmp/generated-scripts/templates.js', '.tmp/generated-scripts/module.js', '.tmp/generated-scripts/components.js'])
         .pipe(sftp({
             host: 'accom.ablist.win',
             auth: 'keyMain',
@@ -25,5 +25,14 @@ gulp.task('staging:styles', function () {
             host: 'accom.ablist.win',
             auth: 'keyMain',
             remotePath: '/root/log/public/generated-styles/'
+        }));
+});
+
+gulp.task('staging:node_modules', function () {
+    return gulp.src(['.tmp/generated-scripts/node_modules.js'])
+        .pipe(sftp({
+            host: 'accom.ablist.win',
+            auth: 'keyMain',
+            remotePath: '/root/log/public/generated-scripts/'
         }));
 });
