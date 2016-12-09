@@ -142,41 +142,4 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
     $log.debug($feathers);
   };
 
-  //Dropzone file upload config
-  $scope.dzOptions = {
-        url : '/uploads',
-        paramName : 'uri',
-        maxFilesize : '100000',
-        acceptedFiles : 'image/jpeg, images/jpg, image/png',
-        addRemoveLinks : true
-    };
-
-    //Handle events for dropzone
-    //Visit http://www.dropzonejs.com/#events for more events
-    $scope.dzCallbacks = {
-        'addedfile' : function(file){
-            $log.debug(file.name);
-            $scope.newFile = file;
-        },
-        'success' : function(file, xhr){
-            $log.debug('Upload success: ', xhr);
-        },
-        'uploadprogress' : function(file, progress, bytesSent){
-            $log.debug(progress);
-        },
-        'error' : function(file, errorMessage) {
-            $log.debug('File upload error: ', errorMessage);
-        },
-        'thumbnail' : function(file, dataUrl) {
-            //$log.debug('Upload thumbnail: ', dataUrl);
-        }
-    };
-
-    //Apply methods for dropzone
-    //Visit http://www.dropzonejs.com/#dropzone-methods for more methods
-    $scope.dzMethods = {};
-    $scope.removeNewFile = function(){
-        $scope.dzMethods.removeFile($scope.newFile); //We got $scope.newFile from 'addedfile' event callback
-    };
-
 }

@@ -1,1 +1,71 @@
-<leaflet width="100%" height="480px"></leaflet>
+<md-content layout-padding>
+
+
+<div layout-gt-sm="row" layout="column">
+
+
+	<div flex layout="column">
+		<div layout="column">
+	        <md-input-container md-no-float class="md-block">
+	          <input ng-model="user.address2" placeholder="Address">
+	        </md-input-container>
+
+	        <md-input-container md-no-float class="md-block">
+	          <input ng-model="user.address2" placeholder="Address 2">
+	        </md-input-container>
+		</div>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>City</label>
+            <input ng-model="user.city">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>State</label>
+            <input name="postalCode" ng-model="user.postalCode"
+                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+
+            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+              <div ng-message="required" class="my-message">You must supply a postal code.</div>
+              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                code.
+              </div>
+              <div ng-message="md-maxlength" class="my-message">
+                Don't use the long version silly...we don't need to be that specific...
+              </div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Postal Code</label>
+            <input name="postalCode" ng-model="user.postalCode"
+                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+
+            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
+              <div ng-message="required" class="my-message">You must supply a postal code.</div>
+              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                code.
+              </div>
+              <div ng-message="md-maxlength" class="my-message">
+                Don't use the long version silly...we don't need to be that specific...
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+	</div>
+
+
+	<div flex layout="column" layout-margin>
+	<md-card>
+		<leaflet width="100%" height="320px"></leaflet>
+	</div>
+	</md-card>
+
+</div>
+
+<div layout="row"  layout-align="end center">
+	<md-button type="submit" class="md-raised md-accent" ng-click="changeState('details.amenities')">Back</md-button>
+	<md-button type="submit" class="md-raised md-accent" ng-click="vm.updateProperty(); changeState('details.photos')">Save & Continue</md-button>
+</div>
+
+</md-content>

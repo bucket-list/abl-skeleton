@@ -1,1 +1,56 @@
 <ng-dropzone class="dropzone" options="dzOptions" callbacks="dzCallbacks" methods="dzMethods"></ng-dropzone>
+
+<div layout-padding>
+<md-grid-list
+        md-cols="1" md-cols-sm="3" md-cols-md="4" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="1:1" md-row-height-xs="2:1"
+        md-gutter="8px" md-gutter-gt-sm="8px" >
+
+    <md-grid-tile ng-repeat="image in vm.images"
+                  md-rowspan="1"
+                  md-colspan="1"
+                  md-colspan-sm="1"
+                  md-colspan-xs="1"
+                  ng-class="">
+      <md-grid-tile-header class="transparent" layout-padding>
+        <div layout="row">
+          <ng-md-icon icon="check_box_outline_blank"
+            ng-click="vm.setDefaultImage(image);"
+            ng-if="!vm.isDefaultImage(image);"
+            class="tileIconButton"
+            style="" options={{iconTransitionOptions}}>
+            <md-tooltip md-direction="top">Set as default image.</md-tooltip>
+          </ng-md-icon>
+
+          <ng-md-icon icon="check_box"
+            ng-if="vm.isDefaultImage(image);"
+            class="tileIconButton"
+            style="" options={{iconTransitionOptions}}>
+            <md-tooltip md-direction="top">Set as default image.</md-tooltip>
+          </ng-md-icon>
+
+          <span flex></span>
+
+          <ng-md-icon icon="delete"
+            ng-click="vm.deleteImage(image);"
+            class="tileIconButton"
+            style="" options={{iconTransitionOptions}}>
+            <md-tooltip md-direction="top">Delete this image.</md-tooltip>
+          </ng-md-icon>
+        </div>
+      </md-grid-tile-header>
+
+      <md-grid-tile-footer class="full-height">
+        <img src='/images/{{image}}' alt="Smiley face" height="100%" width="100%">
+      </md-grid-tile-footer>
+
+      <md-grid-tile-footer class="full-height scrim-top">
+      </md-grid-tile-footer>
+    </md-grid-tile>
+</md-grid-list>
+</div>
+
+<div layout="row"  layout-align="end center">
+  <md-button type="submit" class="md-raised md-accent" ng-click="changeState('details.map')">Back</md-button>
+  <md-button type="submit" class="md-raised md-accent" ng-click="vm.updateProperty(); changeState('details.contact')">Save & Continue</md-button>
+</div>

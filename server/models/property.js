@@ -12,18 +12,61 @@ const timeZone = "America/Vancouver";
 const LocationSchema = require('./location');
 
 const PropertySchema = new Schema({
-  title: {type: String},
   createdAt: {type: Date, 'default': Date.now},
   updatedAt: {type: Date, 'default': Date.now},
-  description: {
-    type: String,
-    'default': ""
+  strings: {
+    en: {
+      title: {
+        type: String,
+        'default': ""
+      },
+      tagline: {
+        type: String,
+        'default': ""
+      },
+      description: {
+        type: String,
+        'default': ""
+      }
+    },
+    fr: {
+      title: {
+        type: String,
+        'default': ""
+      },
+      tagline: {
+        type: String,
+        'default': ""
+      },
+      description: {
+        type: String,
+        'default': ""
+      }
+    },
+    es: {
+      title: {
+        type: String,
+        'default': ""
+      },
+      tagline: {
+        type: String,
+        'default': ""
+      },
+      description: {
+        type: String,
+        'default': ""
+      }
+    }
   },
+  contactImage: {type: String, 'default': ""},
+  fullName: {type: String, 'default': ""},
+  phone: {type: String, 'default': ""},
+  phone2: {type: String, 'default': ""},
+  email: {type: String, 'default': ""},
+  facebook: {type: String, 'default': ""},
+  twitter: {type: String, 'default': ""},
+  instagram: {type: String, 'default': ""},
   location: LocationSchema,
-  tagline: {
-    type: String,
-    'default': "New Property"
-  },
   timeZone: {
     type: String,
     'default': timeZone
@@ -45,6 +88,10 @@ const PropertySchema = new Schema({
   images: {
     type: [String],
     'default': []
+  },
+  defaultImage: {
+    type: String,
+    'default': ''
   },
   houseRules: {
     type: [String],
@@ -77,10 +124,6 @@ const PropertySchema = new Schema({
   charges: {
     type: [String],
     'default': []
-  },
-  languages: {
-    type: [String],
-    'default': ['French', 'English']
   },
   type: {
     type: String,

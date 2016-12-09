@@ -66,11 +66,19 @@
                         md-colors="{background: 'primary-hue-1'}">
             <md-grid-tile-header layout-padding>
               <div layout="row">
-                <p>{{property.tagline}}</p>
+                <p class="tile-header-top-layer">{{property.strings.en.tagline}}</p>
                 <span flex></span>
                 <ng-md-icon icon="delete" ng-click="vm.deleteProperty(property);" style="" options={{iconTransitionOptions}}></ng-md-icon>
               </div>
             </md-grid-tile-header>
+
+
+            <md-grid-tile-footer class="full-height">
+              <img src='/images/{{property.defaultImage}}' alt="{{image}}" height="100%" width="100%">
+            </md-grid-tile-footer>
+
+            <md-grid-tile-footer class="full-height scrim-top">
+            </md-grid-tile-footer>
 
             <md-grid-tile-footer>
               <div layout="row" layout-align="space-around center">

@@ -8,7 +8,7 @@ descriptionMaxLength -->
   <!-- <md-content layout="column" layout-padding md-colors="{background: 'gray-100'}"> -->
 
   <md-content layout="column" layout-padding>
-  <form name="propertyForm">
+  <form name="propertyForm" novalidate>
 
     <div flex="100" flex-gt-sm="100" layout="column">
           <div>
@@ -20,9 +20,9 @@ descriptionMaxLength -->
               <legend>Languages</legend>
               <div layout="row" layout-wrap layout-align="start center" flex>
                 <div class="padding-top-right" ng-repeat="language in vm.languages">
-                  <md-checkbox ng-checked="exists(language, vm.languagesSelected)" ng-click="toggle(language, vm.languagesSelected)">
-                    {{ language }} <span ng-if="exists(language, vm.languagesSelected)"></span>
-                  </md-checkbox>
+                  <md-button
+                  ng-click="vm.changeLanguage(language);"
+                  ng-class="{ 'md-primary md-hue-2': vm.languageSelected == language }">{{language}}</md-button>
                 </div>
               </div>
             </fieldset>
@@ -31,7 +31,7 @@ descriptionMaxLength -->
 
     <md-input-container class="md-block">
       <label>Title</label>
-      <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.title">
+      <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.strings[vm.languageKey].title">
       <div ng-messages="propertyForm.title.$error">
         <div ng-message="required">This is required.</div>
         <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
@@ -40,7 +40,7 @@ descriptionMaxLength -->
 
     <md-input-container class="md-block">
       <label>Tagline</label>
-      <input md-maxlength="30" required md-no-asterisk name="tagline" ng-model="vm.property.tagline">
+      <input md-maxlength="30" required md-no-asterisk name="tagline" ng-model="vm.property.strings[vm.languageKey].tagline">
       <div ng-messages="propertyForm.tagline.$error">
         <div ng-message="required">This is required.</div>
         <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
@@ -105,11 +105,11 @@ descriptionMaxLength -->
 
     <md-input-container class="md-block">
       <label>Description</label>
-      <textarea ng-model="vm.property.description" md-maxlength="2000" rows="5" md-select-on-focus></textarea>
+      <textarea ng-model="vm.property.strings[vm.languageKey].description" md-maxlength="2000" rows="5" md-select-on-focus></textarea>
     </md-input-container>
 
     <div layout="row"  layout-align="end center">
-      <md-button type="submit" class="md-raised md-accent" ng-click="vm.updateProperty()">Save & Continue</md-button>
+      <md-button type="submit" class="md-raised md-accent" ng-click="vm.updateProperty(); changeState('details.amenities')">Save & Continue</md-button>
     </div>
 
   </form>

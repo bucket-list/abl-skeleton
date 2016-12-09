@@ -1,0 +1,21 @@
+md-icon.icon-md {
+    margin: auto;
+    background-repeat: no-repeat no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+    height: 48px;
+    width: 48px;
+    min-height: 48px;
+    min-width: 48px;
+}
+
+.md-button.md-icon-button.icon-logo {
+    margin: 0 2px 2px 2px;
+    height: 52px;
+    min-width: 0;
+    line-height: 48px;
+    padding: 2px;
+    width: 52px;
+    border-radius: 50%;
+}

@@ -6,8 +6,10 @@ function PropertiesController ($scope, $state, $stateParams, config, $log) {
   vm.total      = 0;
   vm.position   = 0;
 
+  //Default view is module/card view for the properties view
   vm.viewLayout = 'view_module';
 
+  //Toggle the grid list view between module/card and list views
   vm.toggleView = function() {
     if(vm.viewLayout === 'view_list'){
       vm.viewLayout = 'view_module';
@@ -15,7 +17,7 @@ function PropertiesController ($scope, $state, $stateParams, config, $log) {
       vm.viewLayout = 'view_list';
     }
   };
-
+  //Return all properties matching the given paramaters, if no paramaters given, return all properties
   vm.getProperties = function(params) {
     $scope.propertyService.find(params || {}).then(function(properties) {
       vm.properties = properties.data;
@@ -26,6 +28,7 @@ function PropertiesController ($scope, $state, $stateParams, config, $log) {
     });
   };
 
+  //Create a new emptyu property in the database with the default values set in the mongoose model
   vm.addProperty = function() {
       $scope.propertyService.create({title: Date.now()}).then(function (property, error) {
         vm.properties.unshift(property);
@@ -34,6 +37,7 @@ function PropertiesController ($scope, $state, $stateParams, config, $log) {
       });
   };
 
+  //Remove a property from the database
   vm.deleteProperty = function(property) {
     $scope.propertyService.remove({_id: property._id}).then(function () {
       vm.properties.splice(vm.properties.indexOf(property), 1);

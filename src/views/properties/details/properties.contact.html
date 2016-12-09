@@ -1,0 +1,78 @@
+<md-content layout-padding>
+
+  <div flex="100" flex-gt-sm="50" layout="column">
+  <legend-md>Primary Contact</legend-md>
+  <md-input-container class="md-block">
+    <label>Full Name</label>
+    <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.fullName">
+    <div ng-messages="propertyForm.title.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-block">
+    <label>Phone Number</label>
+    <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.phone">
+    <div ng-messages="propertyForm.title.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-block">
+    <label>Secondary Phone Number</label>
+    <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.phone2">
+    <div ng-messages="propertyForm.title.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-block">
+    <label>E-mail</label>
+    <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.email">
+    <div ng-messages="propertyForm.title.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+    </div>
+  </md-input-container>
+
+
+  <legend-md>Social</legend-md>
+  <md-input-container class="md-block">
+    <label>Facebook</label>
+    <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.facebook">
+    <div ng-messages="propertyForm.title.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-block">
+    <label>Twitter</label>
+    <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.twitter">
+    <div ng-messages="propertyForm.title.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+    </div>
+  </md-input-container>
+
+  <md-input-container class="md-block">
+    <label>Instagram</label>
+    <input md-maxlength="30" required md-no-asterisk name="title" ng-model="vm.property.instagram">
+    <div ng-messages="propertyForm.title.$error">
+      <div ng-message="required">This is required.</div>
+      <div ng-message="md-maxlength">The title must be less than 30 characters long.</div>
+    </div>
+  </md-input-container>
+</div>
+<div flex="100" flex-gt-sm="50" layout="column">
+</div>
+
+<div layout="row"  layout-align="end center">
+  <md-button type="submit" class="md-raised md-accent" ng-click="changeState('details.photos')">Back</md-button>
+  <md-button type="submit" class="md-raised md-accent" ng-click="vm.updateProperty()">Save</md-button>
+</div>
+
+</md-content>
