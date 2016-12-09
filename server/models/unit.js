@@ -1,3 +1,14 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+//Configuration variables
+const descriptionMinLength = 10;
+const descriptionMaxLength = 2000;
+const tagLineMinLength = 5;
+const tagLineMaxLength = 100;
+const timeZone = "America/Vancouver";
+
+
 const Unit = new Schema({
 	organizations: [{
 		type: Schema.Types.ObjectId,
@@ -14,23 +25,13 @@ const Unit = new Schema({
 	rooms: ["bedroom", "bathroom", "kitchen", "laundry", "parking"].reduce((memo, type) => Object.assign(memo, {
 		[type]: {
 			type: Number,
-			default: 0,
-			min: 0, // TODO i18n
-			validate: [{
-				validator: Number.isInteger,
-				message: langModel["unit-room-is-not-integer"] // TODO i18n
-			}]
+			default: 0
 		}
 	}), {}),
 	beds: ["king", "queen", "double", "sofa"].reduce((memo, type) => Object.assign(memo, {
 		[type]: {
 			type: Number,
-			default: 0,
-			min: 0, // TODO i18n
-			validate: [{
-				validator: Number.isInteger,
-				message: langModel["unit-bed-is-not-integer"] // TODO i18n
-			}]
+			default: 0
 		}
 	}), {}),
 
@@ -38,64 +39,117 @@ const Unit = new Schema({
 		_id: false,
 		amount: {
 			type: Number,
-			default: 0,
-			min: [0, langModel["unit-size-lt-0"]],
-			validate: [{
-				validator: Number.isInteger,
-				message: langModel["unit-guests-is-not-integer"]
-			}]
+			default: 0
 		},
 		unit: String
 	},
 
 	guests: {
 		type: Number,
-		default: 0,
-		min: 0, // TODO i18n
-		validate: [{
-			validator: Number.isInteger,
-			message: langModel["unit-guests-is-not-integer"] // TODO i18n
-		}]
+		default: 0
 	},
 
 	number: {
 		type: Number,
-		min: [0, langModel["unit-number-lt-0"]]
 	},
 	names: {
 		type: [String],
 		default: [],
-		get: arrayGetter
 	},
 
 	timeZone: {
 		type: String,
 		default: timeZone
 	},
-	units: []
+	units: [],
+	status: {
+		type: String,
+		default: "active"
+	},
+	images: {
+		type: [String],
+		default: []
+	},
+	originalMinOcc: Number,
+	originalMaxOcc: Number,
+	minOcc: {
+		type: Number,
+		default: 1
+	},
+	maxOcc: {
+		type: Number
+	},
+
+	strings: {
+		en: {
+			title: {
+				type: String,
+				'default': ""
+			},
+			tagline: {
+				type: String,
+				'default': ""
+			},
+			description: {
+				type: String,
+				'default': ""
+			}
+		},
+		fr: {
+			title: {
+				type: String,
+				'default': ""
+			},
+			tagline: {
+				type: String,
+				'default': ""
+			},
+			description: {
+				type: String,
+				'default': ""
+			}
+		},
+		es: {
+			title: {
+				type: String,
+				'default': ""
+			},
+			tagline: {
+				type: String,
+				'default': ""
+			},
+			description: {
+				type: String,
+				'default': ""
+			}
+		}
+	}
+
+
+
 }, {
 	timestamps: true,
 	versionKey: false
 });
 
 // Unit.plugin(occupancy, {prefix: "unit"});
-Unit.plugin(status, {controller: UnitController});
-Unit.plugin(image);
-Unit.plugin(strings, {
-	fields: {
-		title: {
-			type: String,
-			default: "",
-			required: true,
-			minlength: titleMinLength,
-			maxlength: titleMaxLength
-		},
-		description: {
-			type: String,
-			default: "",
-			required: true,
-			minlength: descriptionMinLength,
-			maxlength: descriptionMaxLength
-		}
-	}
-});
+//Unit.plugin(status, {controller: UnitController});
+//Unit.plugin(image);
+//Unit.plugin(strings, {
+//	fields: {
+//		title: {
+//			type: String,
+//			default: "",
+//			required: true,
+//			minlength: titleMinLength,
+//			maxlength: titleMaxLength
+//		},
+//		description: {
+//			type: String,
+//			default: "",
+//			required: true,
+//			minlength: descriptionMinLength,
+//			maxlength: descriptionMaxLength
+//		}
+//	}
+//});
