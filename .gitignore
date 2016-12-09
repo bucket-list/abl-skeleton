@@ -12,7 +12,7 @@ target
 coverage
 
 #test API logs
-test/api/log.db
+api/log.db
 
 .ftppass
 
