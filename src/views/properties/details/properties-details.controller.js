@@ -34,6 +34,8 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
     _.pull(vm.amenitiesSelected, amenity); // Remove from available amenities list
   };
 
+  //Map
+  vm.location = {};
 
   // Photos
   vm.images = [];
@@ -106,6 +108,8 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
 
           vm.images             = vm.property.images;
           vm.defaultImage       = vm.property.defaultImage;
+
+          vm.loocation          = vm.property.location;
         });
   };
 

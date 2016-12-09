@@ -5,41 +5,27 @@
 
 
 	<div flex layout="column">
-		<div layout="column">
-	        <md-input-container md-no-float class="md-block">
-	          <input ng-model="user.address2" placeholder="Address">
+	        <md-input-container class="md-block" flex-gt-sm>
+        	  <label>Address</label>
+	          <input ng-model="vm.loocation.property.streetAddress" placeholder="Address">
 	        </md-input-container>
 
-	        <md-input-container md-no-float class="md-block">
-	          <input ng-model="user.address2" placeholder="Address 2">
-	        </md-input-container>
-		</div>
-        <div layout-gt-sm="row">
           <md-input-container class="md-block" flex-gt-sm>
             <label>City</label>
-            <input ng-model="user.city">
+            <input ng-model="vm.property.location.city">
           </md-input-container>
 
           <md-input-container class="md-block" flex-gt-sm>
             <label>State</label>
-            <input name="state" ng-model="user.postalCode"
+            <input name="state" ng-model="vm.property.location.state"
                    required md-maxlength="7">
-
-            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-              <div ng-message="required" class="my-message">You must supply a state.</div>
-            </div>
           </md-input-container>
 
           <md-input-container class="md-block" flex-gt-sm>
             <label>Postal Code</label>
-            <input name="postalCode" ng-model="user.postalCode"
-                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
-
-            <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-              <div ng-message="required" class="my-message">You must supply a postal code.</div>
-            </div>
+            <input name="postalCode" ng-model="vm.property.location.zipCode"
+                    md-maxlength="7">
           </md-input-container>
-        </div>
 	</div>
 
 
