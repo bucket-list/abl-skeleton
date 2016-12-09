@@ -136,4 +136,6 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
   };
 
   vm.viewProperty($stateParams.propertyId);
+
+  $scope.$watch(function(scope) {return vm.property}, function(value) {console.log('$WATCH ', value)}, true);
 }
