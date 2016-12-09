@@ -1,4 +1,4 @@
-function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBottomSheet, $mdToast, $log, logSocket, deviceDetector, config) {
+function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBottomSheet, $mdToast, $mdMedia, $log, logSocket, deviceDetector, config) {
   var vm = this;
   $log.debug('Debugging enabled.');
   $log.debug('$feathers ', $feathers);
@@ -10,9 +10,13 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
     $log.debug('$locationChangeStart ', toState, $state);
   });
 
-  $scope.moduleName = config.MODULE_NAME;
-  $scope.navOpen = true;
-  $scope.loading = true;
+  $scope.screenIsBig = function() {
+    return $mdMedia('gt-xs');
+  };
+
+  $scope.moduleName  = config.MODULE_NAME;
+  $scope.navOpen     = true;
+  $scope.loading     = true;
 
   $rootScope.$on('$stateChangeSuccess',
   function(event, toState, toParams, fromState, fromParams){});

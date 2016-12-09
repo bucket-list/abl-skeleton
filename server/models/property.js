@@ -140,7 +140,7 @@ const PropertySchema = new Schema({
     },
     streetAddress: {
       type: String,
-      'default': ""
+      'default': ''
     },
     city: String,
     state: String,
