@@ -5,9 +5,9 @@
     </span>
   </div>
   <div layout="row" layout-align="end start">
-    <md-input-container md-no-float class="md-block" flex>
+<!--     <md-input-container md-no-float class="md-block" flex>
       <input ng-model="user.firstName" placeholder="Search">
-    </md-input-container>
+    </md-input-container> -->
     <md-button class="md-raised md-fab md-mini" aria-label="Toggle grid" ng-click="vm.toggleView()">
       <ng-md-icon icon={{vm.viewLayout}} style="fill: rgb(33,33,33)"
       options={{iconTransitionOptions}}></ng-md-icon>
@@ -74,7 +74,7 @@
 
 
             <md-grid-tile-footer class="full-height">
-              <img src='/images/{{property.defaultImage}}' alt="{{image}}" height="100%" width="100%">
+              <img ng-src='/images/{{property.defaultImage}}' onerror="this.style.display='none'" height="100%" width="100%">
             </md-grid-tile-footer>
 
             <md-grid-tile-footer class="full-height scrim-top">

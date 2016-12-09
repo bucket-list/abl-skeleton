@@ -9,19 +9,14 @@ const tagLineMaxLength = 100;
 const timeZone = "America/Vancouver";
 
 
-const Unit = new Schema({
-	organizations: [{
-		type: Schema.Types.ObjectId,
-		ref: "Organization"
-	}],
+const UnitSchema = new Schema({
 	property: {
-		type: Schema.Types.ObjectId,
-		ref: "Property"
+		type: Schema.Types.ObjectId
 	},
-	amenities: [{
-		type: Schema.Types.ObjectId,
-		ref: "Amenity"
-	}],
+	amenities: {
+		type: [String],
+		'default': []
+	},
 	rooms: ["bedroom", "bathroom", "kitchen", "laundry", "parking"].reduce((memo, type) => Object.assign(memo, {
 		[type]: {
 			type: Number,
@@ -70,6 +65,10 @@ const Unit = new Schema({
 		type: [String],
 		default: []
 	},
+	defaultImage: {
+    	type: String,
+    	'default': ''
+  	},
 	originalMinOcc: Number,
 	originalMaxOcc: Number,
 	minOcc: {
@@ -79,7 +78,10 @@ const Unit = new Schema({
 	maxOcc: {
 		type: Number
 	},
-
+	property: {
+		type: String,
+		'default': ''
+	},
 	strings: {
 		en: {
 			title: {
@@ -153,3 +155,8 @@ const Unit = new Schema({
 //		}
 //	}
 //});
+UnitSchema.index({'updatedAt': -1, background: true});
+
+var UnitModel = mongoose.model('Unit', UnitSchema);
+
+module.exports = UnitModel;

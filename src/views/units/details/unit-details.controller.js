@@ -1,9 +1,19 @@
-function UnitDetailsController ($scope, $state, $stateParams, config, properties, $log, _) {
+function UnitDetailsController ($scope, $state, $stateParams, config, $log, properties, units, _) {
   var vm = this;
   vm.unit         = {};
 
-  //Details
+  vm.getNumber = function(count){
 
+    var ratings = []; 
+
+    for (var i = 0; i < count; i++) { 
+      ratings.push(i) 
+    } 
+
+    return ratings;
+  }
+
+  //Details
   vm.changeLanguage = function(language) {
     vm.languageSelected = language;
     vm.languageKey = vm.languageKeys[vm.languages.indexOf(vm.languageSelected)];

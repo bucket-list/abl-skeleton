@@ -1,0 +1,24 @@
+<md-content layout="column" layout-padding>
+
+<div flex layout="column">
+  <legend-md>Selected</legend-md>
+  <div layout="row" layout-wrap>
+    <div ng-repeat="amenity in vm.amenitiesSelected">
+      <md-button ng-click="vm.unselectAmenity(amenity)" class="md-primary hue-2">{{amenity}}</md-button>
+    </div>
+  </div>
+  <legend-md>Available</legend-md>
+  <div layout="row" layout-wrap>
+    <div ng-repeat="amenity in vm.amenitiesAvailable">
+      <md-button ng-click="vm.selectAmenity(amenity)">{{amenity}}</md-button>
+    </div>
+  </div>
+</div>
+
+  <div layout="row"  layout-align="end center">
+    <md-button type="submit" class="md-raised md-accent" ng-click="changeState('unit.rooms')">Back</md-button>
+    <md-button type="submit" class="md-raised md-accent" ng-click="vm.updateUnit(); changeState('unit.photos')">Save & Continue</md-button>
+  </div>
+  
+</md-content>
+

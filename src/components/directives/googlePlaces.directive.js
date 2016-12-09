@@ -1,4 +1,4 @@
-function googlePlaces(){
+function googlePlaces($log){
     return {
         restrict: 'A',
         scope: {
@@ -12,10 +12,10 @@ function googlePlaces(){
                     var autocomplete = new google.maps.places.Autocomplete(element[0], {});
                     google.maps.event.addListener(autocomplete, 'place_changed', function() {
                         var place = autocomplete.getPlace();
-                        console.log('GOOGLE AUTOCOMPLETE ', place);
+                        $log.debug('GOOGLE AUTOCOMPLETE ', place);
                         var coordinates = [place.geometry.location.lng(), place.geometry.location.lat()];
-                        console.log('GOOGLE AUTOCOMPLETE COORDINATES ', coordinates);
-                        console.log($scope);
+                        $log.debug('GOOGLE AUTOCOMPLETE COORDINATES ', coordinates);
+                        $log.debug($scope);
                         $scope.model = {};
                         $scope.model.coordinates = coordinates;
                         angular.forEach(place.address_components, function(value, key){
@@ -46,7 +46,7 @@ function googlePlaces(){
             };
         }
     };
-};
+}
 //.service('stripeGooglePlaces', function(){
 //  return {
 //    toStripe: function(location){

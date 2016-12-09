@@ -14,6 +14,10 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
     return $mdMedia('gt-xs');
   };
 
+  $scope.screenIsNormal = function() {
+    return !$mdMedia('xs');
+  };
+
   $scope.moduleName  = config.MODULE_NAME;
   $scope.navOpen     = true;
   $scope.loading     = true;
@@ -41,6 +45,9 @@ function NavController ($scope, $rootScope, $state, $feathers, $window, $mdBotto
     }
     if($state.current.templateUrl.substr(0,18) === 'properties/details') {
       return 'properties/details/properties.nav.html';
+    }
+    if($state.current.templateUrl.substr(0,13) === 'units/details') {
+      return 'units/details/units.nav.html';
     }
   };
 

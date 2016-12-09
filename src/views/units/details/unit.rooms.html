@@ -1,0 +1,44 @@
+    <md-content layout="column" layout-padding>
+    <md-input-container class="md-block">
+      <label>Unit Title</label>
+      <input md-maxlength="30" required md-no-asterisk name="tagline" ng-model="vm.unit.strings['en'].tagline">
+    </md-input-container>
+
+    <div layout-gt-sm="row" layout="column" flex>
+      <md-input-container flex="100" flex-gt-sm="25">
+        <label>Number of Guests</label>
+        <md-select name="size" ng-model="vm.unit.guests" required>
+          <md-option value="1">1</md-option>
+          <md-option value="2">2</md-option>
+          <md-option value="3">3</md-option>
+          <md-option value="4">4</md-option>
+          <md-option value="5">5</md-option>	
+          <md-option value="6">6</md-option>
+          <md-option value="7">7</md-option>
+          <md-option value="8">8</md-option>
+          <md-option value="9">9</md-option>
+          <md-option value="10">10</md-option>
+        </md-select>
+      </md-input-container>
+
+      <div layout="row">
+      <md-input-container flex>
+        <label>Size</label>
+        <input name="diamonds" ng-model="vm.unit.size.amount">
+      </md-input-container>
+    
+      <md-input-container flex="50">
+        <label>Format</label>
+		<md-select name="sizeType" ng-model="vm.unit.size.unit" required>
+          <md-option value="ft">Sq. Feet</md-option>
+          <md-option value="m">Sq. Meters</md-option>
+        </md-select>      
+       </md-input-container>
+       </div>
+    </div>
+
+    <div layout="row"  layout-align="end center">
+  		<md-button type="submit" class="md-raised md-accent" ng-click="changeState('unit.details')">Back</md-button>
+    	<md-button type="submit" class="md-raised md-accent" ng-click="vm.updateUnit(); changeState('unit.amenities')">Save & Continue</md-button>    
+    </div>
+</md-content>

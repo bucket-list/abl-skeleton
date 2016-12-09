@@ -37,6 +37,9 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
   //Map
   vm.location = {};
 
+  vm.getPin = function() {
+
+  }
   // Photos
   vm.images = [];
   vm.defaultImage = '';
@@ -109,7 +112,7 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
           vm.images             = vm.property.images;
           vm.defaultImage       = vm.property.defaultImage;
 
-          vm.loocation          = vm.property.location;
+          vm.location          = vm.property.location;
         });
   };
 

@@ -15,6 +15,18 @@ function UnitsController ($scope, $state, $stateParams, config, $log) {
 
   var vm = this;
 
+  //Default view is module/card view for the properties view
+  vm.viewLayout = 'view_module';
+
+  //Toggle the grid list view between module/card and list views
+  vm.toggleView = function() {
+    if(vm.viewLayout === 'view_list'){
+      vm.viewLayout = 'view_module';
+    } else {
+      vm.viewLayout = 'view_list';
+    }
+  };
+  
   //Return all units matching the given paramaters, if no paramaters given, return all units
   vm.getUnits = function(params) {
     $scope.unitService.find(params || {}).then(function(units) {
@@ -28,7 +40,7 @@ function UnitsController ($scope, $state, $stateParams, config, $log) {
 
   //Create a new empty unit in the database with the default values set in the mongoose model
   vm.addUnit = function() {
-      $scope.unitService.create({title: Date.now()}).then(function (unit, error) {
+      $scope.unitService.create({}).then(function (unit, error) {
         vm.units.unshift(unit);
         $scope.safeApply();
         $log.debug('addUnit', unit);

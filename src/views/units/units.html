@@ -1,8 +1,105 @@
-<div ng-repeat="unit in vm.units">
-  <md-card>
-    <md-card-content>
-      <h3>{{unit.strings.en.title}}</h3>
-      <p>{{unit.strings.en.tagline}}</p>
-    </md-card-content>
-  </md-card>
+<div layout="row" layout-padding ng-cloak>
+  <div layout="row" layout-align="start end" flex>
+    <span flex>
+      <div ui-view></div>
+    </span>
+  </div>
+  <div layout="row" layout-align="end start">
+<!--     <md-input-container md-no-float class="md-block" flex>
+      <input ng-model="user.firstName" placeholder="Search">
+    </md-input-container> -->
+    <md-button class="md-raised md-fab md-mini" aria-label="Toggle grid" ng-click="vm.toggleView()">
+      <ng-md-icon icon={{vm.viewLayout}} style="fill: rgb(33,33,33)"
+      options={{iconTransitionOptions}}></ng-md-icon>
+    </md-button>
+    <md-button class="md-raised" ng-click="vm.addUnit()">Add</md-button>
+  </div>
+
 </div>
+<div layout="row" layout-align="start center">
+</div>
+<md-content layout-xs="column" layout="row" ng-cloak>
+  <div flex layout="column" ng-switch="vm.viewLayout" ng-cloak>
+
+      <div ng-switch-when="view_list" class="gridListdemoDynamicTiles" ng-cloak>
+        <md-grid-list
+              md-cols="1" md-cols-xs="1" md-cols-sm="1" md-cols-md="1" md-cols-gt-md="1"
+              md-row-height-gt-md="6:1" md-row-height="3:1"
+              md-gutter="8px" md-gutter-gt-sm="4px" class="gridListdemoDynamicTiles">
+
+          <md-grid-tile ng-repeat="unit in vm.units"
+                        md-rowspan="1"
+                        md-colspan="1"
+                        md-colspan-sm="1"
+                        md-colspan-xs="1"
+                        md-colors="{background: 'primary-hue-1'}">
+            <md-grid-tile-header layout-padding>
+              <div layout="row">
+                <p>{{unit.tagline}}</p>
+                <span flex></span>
+                <ng-md-icon icon="delete" ng-click="vm.deleteUnit(unit);" style="" options={{iconTransitionOptions}}></ng-md-icon>
+              </div>
+            </md-grid-tile-header>
+
+            <md-grid-tile-footer>
+              <div layout="row" layout-margin>
+                <p>$482</p>
+                <span flex></span>
+                <ng-md-icon icon="hotel" style="" options={{iconTransitionOptions}}></ng-md-icon>
+              </div>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+        </md-grid-list>
+      </div>
+
+      <div ng-switch-when="view_module" class="gridListdemoDynamicTiles" ng-cloak>
+        <md-grid-list
+              md-cols="1" md-cols-xs="1" md-cols-sm="1" md-cols-md="3" md-cols-gt-md="4"
+              md-row-height-gt-sm="1:1" md-row-height="2:1"
+              md-gutter="8px" md-gutter-gt-sm="8px" class="gridListdemoDynamicTiles">
+
+          <md-grid-tile ng-repeat="unit in vm.units"
+                        md-rowspan="1"
+                        md-colspan="1"
+                        md-colspan-sm="1"
+                        md-colspan-xs="1"
+                        md-colors="{background: 'primary-hue-1'}">
+            <md-grid-tile-header layout-padding>
+              <div layout="row">
+                <p class="tile-header-top-layer">{{unit.strings.en.tagline}}</p>
+                <span flex></span>
+                <ng-md-icon icon="delete" ng-click="vm.deleteUnit(unit);" style="" options={{iconTransitionOptions}}></ng-md-icon>
+              </div>
+            </md-grid-tile-header>
+
+
+            <md-grid-tile-footer class="full-height">
+              <img src='/images/{{unit.defaultImage}}' onerror="this.style.display='none'" height="100%" width="100%">
+            </md-grid-tile-footer>
+
+            <md-grid-tile-footer class="full-height scrim-top">
+            </md-grid-tile-footer>
+
+            <md-grid-tile-footer>
+              <div layout="row" layout-align="space-around center">
+
+                <md-button class="md-raised md-primary tileButton" ng-click="viewUnit(unit);" ui-sref="unit.details({unitId: unit._id})">
+                  Update&nbsp;
+                  <ng-md-icon icon="edit" style="" options={{iconTransitionOptions}}></ng-md-icon>
+                </md-button>
+
+
+                <md-button class="md-raised md-primary tileButton">
+                  Rates&nbsp;
+                  <ng-md-icon icon="monetization_on" style="" options={{iconTransitionOptions}}></ng-md-icon>
+                </md-button>
+
+
+              </div>
+            </md-grid-tile-footer>
+          </md-grid-tile>
+        </md-grid-list>
+      </div>
+
+  </div>
+</md-content>

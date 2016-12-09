@@ -10,7 +10,11 @@
     <md-button class="md-icon-button" ng-click="toggleNav()" aria-label="settings">
       <ng-md-icon icon={{navCollapseIcon}} options={{iconTransitionOptions}}></ng-md-icon>
     </md-button>
-    <h1 ng-hide="!screenIsBig()">ABL Hosts</h1>
+    <h1 ng-hide="!screenIsBig()" flex="30">ABL Hosts</h1>
+<!--         <md-input-container ng-show="screenIsNormal()" md-no-float class="md-block embeddedInput" flex="40">
+<ng-md-icon icon="search"></ng-md-icon>
+        <input ng-model="user.phone" type="text">
+    </md-input-container> -->
     <span flex></span>
 
 

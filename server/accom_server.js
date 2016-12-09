@@ -54,6 +54,18 @@ app.use('/properties', mongooseService({
   }
 }));
 
+//
+const Unit = require('./models/unit');
+
+// Connect to the db, create and register a Feathers service.
+app.use('/units', mongooseService({
+  Model: Unit,
+  paginate: {
+    default: 50,
+    max: 1000
+  }
+}));
+
 // A basic error handler, just like Express
 app.use(handler());
 
@@ -72,19 +84,19 @@ app.use('/log', service({
   }
 }));
 
-// Units db
-const unitDb = new NeDB({
-  filename: './server/api/units.db',
-  autoload: true
-});
+// // Units db
+// const unitDb = new NeDB({
+//   filename: './server/api/units.db',
+//   autoload: true
+// });
 
-app.use('/units', service({
-  Model: unitDb,
-  paginate: {
-    default: 10,
-    max: 1000
-  }
-}));
+// app.use('/units', service({
+//   Model: unitDb,
+//   paginate: {
+//     default: 10,
+//     max: 1000
+//   }
+// }));
 
 const multer = require('multer');
 const multipartMiddleware = multer();

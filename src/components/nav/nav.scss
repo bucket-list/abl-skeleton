@@ -2,7 +2,7 @@ md-sidenav {
   background-color: rgba(0,0,0,.3) !important;
   height: 100%;
   width: 160px;
-  max-width: 100%;
+  max-width: 100% !important;
   letter-spacing: 0 !important;
 }
 
@@ -66,4 +66,47 @@ md-sidenav {
 .info-nav {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
   z-index: 1999 !important;
+}
+
+.embeddedInput {
+  height: 80%;  
+  background-color: rgba(0,0,0,.2);
+  padding: 0 0 0 0;
+  border-width: 0 !important;
+  border-radius: 1px;
+  font-size: 16px;
+  color: rgba(255,255,255,1);
+}
+
+.embeddedInput {
+  border-width: 0 !important;
+  padding: 0 0 0 8px;
+  background-color: rgba(0,0,0,.11);
+  color: rgba(255,255,255,.7) !important;
+}
+
+.embeddedInput input {
+  border-width: 0 !important;
+  padding: 0 0 0 0;
+  height: 100% !important;
+  color: rgba(255,255,255,.7) !important;
+}
+
+.embeddedInput md-input-container {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    padding: 4px;
+    margin: 0px 0px !important;
+    height: 100% !important;
+}
+
+md-input-container.md-icon-left {
+  padding: 0 !important;
+}
+
+.embeddedInput ng-md-icon {
+  height: 50%;
+  top: 25%;
+  padding-left: 8px;
 }
