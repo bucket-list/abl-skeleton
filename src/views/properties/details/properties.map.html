@@ -22,17 +22,11 @@
 
           <md-input-container class="md-block" flex-gt-sm>
             <label>State</label>
-            <input name="postalCode" ng-model="user.postalCode"
-                   required ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+            <input name="state" ng-model="user.postalCode"
+                   required md-maxlength="7">
 
             <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
-              <div ng-message="required" class="my-message">You must supply a postal code.</div>
-              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                code.
-              </div>
-              <div ng-message="md-maxlength" class="my-message">
-                Don't use the long version silly...we don't need to be that specific...
-              </div>
+              <div ng-message="required" class="my-message">You must supply a state.</div>
             </div>
           </md-input-container>
 
@@ -43,12 +37,6 @@
 
             <div ng-messages="userForm.postalCode.$error" role="alert" multiple>
               <div ng-message="required" class="my-message">You must supply a postal code.</div>
-              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
-                code.
-              </div>
-              <div ng-message="md-maxlength" class="my-message">
-                Don't use the long version silly...we don't need to be that specific...
-              </div>
             </div>
           </md-input-container>
         </div>

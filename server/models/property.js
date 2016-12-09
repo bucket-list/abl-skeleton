@@ -9,7 +9,7 @@ const tagLineMaxLength = 100;
 const timeZone = "America/Vancouver";
 
 //Model plugins
-const LocationSchema = require('./location');
+// const LocationSchema = require('./location');
 
 const PropertySchema = new Schema({
   createdAt: {type: Date, 'default': Date.now},
@@ -66,7 +66,7 @@ const PropertySchema = new Schema({
   facebook: {type: String, 'default': ""},
   twitter: {type: String, 'default': ""},
   instagram: {type: String, 'default': ""},
-  location: LocationSchema,
+  // location: LocationSchema,
   timeZone: {
     type: String,
     'default': timeZone
@@ -133,6 +133,40 @@ const PropertySchema = new Schema({
     type: String,
     'default': '0'
   },
+  location: {
+    tag: {
+      type: String,
+      'default': "Main Location"
+    },
+    streetAddress: {
+      type: String,
+      'default': ""
+    },
+    city: String,
+    state: String,
+    stateCode: {
+      type: String,
+      uppercase: true
+    },
+    country: String,
+    countryCode: {
+      type: String,
+      uppercase: true
+    },
+    zipCode: String,
+    location: {
+      _id: false,
+      type: {
+        type: String,
+        enum: ["Point", "LineString", "Polygon"],
+        'default': "Point"
+      },
+      coordinates: {
+        type: [Schema.Types.Mixed],
+        'default': [0, 0]
+      }
+    }
+  }
 });
 
 PropertySchema.index({'updatedAt': -1, background: true});

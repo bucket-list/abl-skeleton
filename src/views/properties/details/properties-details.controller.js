@@ -2,6 +2,7 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
   var vm = this;
   vm.property         = {};
 
+  //Details
   vm.languageSelected = 'English';
   vm.languages        = ['Français', 'English', 'Spanish'];
   vm.languageKeys     = ['fr', 'en', 'es'];
@@ -18,6 +19,7 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
     return vm.languageKeys[vm.languages.indexOf(vm.languageSelected)];
   };
 
+  //Amenities
   vm.amenitiesSelected  = [];
   vm.amenitiesAvailable = [];
   vm.amenities          = angular.copy(properties.amenities);
@@ -32,6 +34,8 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
     _.pull(vm.amenitiesSelected, amenity); // Remove from available amenities list
   };
 
+
+  // Photos
   vm.images = [];
   vm.defaultImage = '';
 
@@ -60,35 +64,35 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
         addRemoveLinks : true
     };
 
-    //Handle events for dropzone
-    //Visit http://www.dropzonejs.com/#events for more events
-    $scope.dzCallbacks = {
-        'addedfile' : function(file){
-            $log.debug(file.name);
-            $scope.newFile = file;
-        },
-        'success' : function(file, xhr){
-            $log.debug('Upload success: ', xhr);
-            if(vm.images.indexOf(xhr.id) < 0) { //Not duplicate
-              vm.images.push(xhr.id);
-              vm.updateProperty();
-            }
-        },
-        'uploadprogress' : function(file, progress, bytesSent){
-            $log.debug(progress);
-        },
-        'error' : function(file, errorMessage) {
-            $log.debug('File upload error: ', errorMessage);
-        },
-        'thumbnail' : function(file, dataUrl) {
-            $log.debug('Upload thumbnail: ', dataUrl);
-        }
-    };
+  //Handle events for dropzone
+  //Visit http://www.dropzonejs.com/#events for more events
+  $scope.dzCallbacks = {
+      'addedfile' : function(file){
+          $log.debug(file.name);
+          $scope.newFile = file;
+      },
+      'success' : function(file, xhr){
+          $log.debug('Upload success: ', xhr);
+          if(vm.images.indexOf(xhr.id) < 0) { //Not duplicate
+            vm.images.push(xhr.id);
+            vm.updateProperty();
+          }
+      },
+      'uploadprogress' : function(file, progress, bytesSent){
+          $log.debug(progress);
+      },
+      'error' : function(file, errorMessage) {
+          $log.debug('File upload error: ', errorMessage);
+      },
+      'thumbnail' : function(file, dataUrl) {
+          $log.debug('Upload thumbnail: ', dataUrl);
+      }
+  };
 
-    $scope.dzMethods = {};
-    $scope.removeNewFile = function(){
-        $scope.dzMethods.removeFile($scope.newFile); //We got $scope.newFile from 'addedfile' event callback
-    };
+  $scope.dzMethods = {};
+  $scope.removeNewFile = function(){
+      $scope.dzMethods.removeFile($scope.newFile); //We got $scope.newFile from 'addedfile' event callback
+  };
 
   vm.viewProperty = function(property) {
         //$log.debug('viewProperty', property);
@@ -106,11 +110,11 @@ function PropertiesDetailsController ($scope, $state, $stateParams, config, prop
   };
 
   vm.updateProperty = function() {
-        //$log.debug('viewProperty', property);
-        $scope.propertyService.update(vm.property._id, vm.property).then(function(prop) {
-          $log.debug('propertyService.update({_id: ' + prop._id + '})', prop);
-        });
-        $scope.safeApply();
+    //$log.debug('viewProperty', property);
+    $scope.propertyService.update(vm.property._id, vm.property).then(function(prop) {
+      $log.debug('propertyService.update({_id: ' + prop._id + '})', prop);
+    });
+    $scope.safeApply();
   };
 
   $scope.toggle = function (item, list) {
