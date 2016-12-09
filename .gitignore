@@ -15,3 +15,6 @@ coverage
 test/api/log.db
 
 .ftppass
+
+#vim swap files
+*.swp
