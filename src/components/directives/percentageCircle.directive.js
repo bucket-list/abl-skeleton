@@ -8,9 +8,10 @@ function percentageCircle() {
         restrict: 'E',
         replace: true,
         scope: {
-            value: '='
+            value: '=',
+            size: '=?'
         },
-        template: ' <div class="c100 p{{value}} big blue">' +
+        template: ' <div class="c100 p{{value}} small" ng-style="{\'font-size\': size}">' +
                   '     <span>{{value}}%</span>' +
                   '     <div class="slice">' +
                   '         <div class="bar"></div>' +
