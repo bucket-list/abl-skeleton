@@ -28,6 +28,8 @@ function PropertiesController ($scope, $state, $stateParams, config, $log) {
     });
   };
 
+
+
   //Create a new emptyu property in the database with the default values set in the mongoose model
   vm.addProperty = function() {
       $scope.propertyService.create({title: Date.now()}).then(function (property, error) {

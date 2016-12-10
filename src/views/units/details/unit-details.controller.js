@@ -1,6 +1,7 @@
-function UnitDetailsController ($scope, $state, $stateParams, config, $log, properties, units, _) {
+function UnitDetailsController ($scope, $timeout, $state, $stateParams, config, $log, properties, units, _) {
   var vm = this;
   vm.unit         = {};
+  vm.property     = '';
 
   vm.getNumber = function(count){
 
@@ -12,6 +13,35 @@ function UnitDetailsController ($scope, $state, $stateParams, config, $log, prop
 
     return ratings;
   }
+
+  $scope.getProperties = function(params) {
+    return $timeout(function() {
+      $scope.propertyService.find(params || {}).then(function(properties) {
+        vm.properties = properties.data;
+        vm.total      = properties.total;
+        vm.limit      = properties.limit;
+        $log.debug('propertyService.find()', properties);
+        $scope.safeApply();
+      });
+    }, 650);
+
+  };
+
+  $scope.loadUsers = function() {
+
+    // Use timeout to simulate a 650ms request.
+    return $timeout(function() {
+
+      $scope.users =  $scope.users  || [
+        { id: 1, name: 'Scooby Doo' },
+        { id: 2, name: 'Shaggy Rodgers' },
+        { id: 3, name: 'Fred Jones' },
+        { id: 4, name: 'Daphne Blake' },
+        { id: 5, name: 'Velma Dinkley' }
+      ];
+
+    }, 650);
+  };
 
   //Details
   vm.changeLanguage = function(language) {

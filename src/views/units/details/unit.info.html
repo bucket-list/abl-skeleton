@@ -1,12 +1,18 @@
   <md-content layout="column" layout-padding>
 
 
-    <div layout-gt-sm="row" layout="column" flex>
+    <div layout-gt-sm="row" layout="column" flex layout-wrap>
       <md-input-container flex>
         <label>Unit Title</label>
         <input md-maxlength="30" required md-no-asterisk name="tagline" ng-model="vm.unit.strings['en'].tagline">
       </md-input-container>
 
+    <div flex="100">
+    <md-select placeholder="Assign to property" ng-model="vm.unit.property" md-on-open="getProperties()" style="min-width: 200px;">
+      <md-option ng-value="prop._id" ng-repeat="prop in vm.properties">{{prop.strings.en.tagline}}</md-option>
+    </md-select>
+<!--     <p class="md-caption">You have assigned the task to: {{ user ? user.name : 'No one yet' }}</p>
+ --></div>
       <md-input-container flex="100" flex-gt-sm="20">
         <label>Number of Guests</label>
         <md-select name="size" ng-model="vm.unit.guests" required>
